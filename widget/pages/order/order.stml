@@ -1,0 +1,28 @@
+<template>
+    <view class="page">
+        <safe-area></safe-area>
+        <hoc-nav-bar-sgm isShowBack title="我的订单" />
+        <hoc-tab-switch-sgm />
+        <hoc-order-list-sgm />
+    </view>
+</template>
+<script>
+import '../../components/hoc-nav-bar-sgm.stml';
+import '../../components/hoc-tab-switch-sgm.stml';
+import '../../components/hoc-order-list-sgm.stml';
+export default {
+    name: 'order',
+    apiready() { //like created
+    },
+    data() {
+        return {};
+    },
+    methods: {}
+};
+</script>
+<style>
+.page {
+    height: 100%;
+    background-color: #f8f8f8;
+}
+</style>

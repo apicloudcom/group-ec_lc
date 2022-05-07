@@ -1,0 +1,69 @@
+<template>
+	<view class="login">
+		<view class='login-logo'>
+			<image class="login-logo-img" mode='aspectFill'
+				src='http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png' />
+		</view>
+		<text class='login-tip'>允许微信授权体验更多功能</text>
+		<button class='login-btn login-blue' onclick={()=> this.wxLogin.bind(this)}>微信授权登录</button>
+		<button class='login-btn login-orange' onclick={this.simulateLogin.bind(this)}>体验账号登录</button>
+	</view>
+</template>
+<script>
+export default {
+	name: 'hoc-login-sgm',
+	apiready() {//like created
+
+	},
+	data() {
+		return {
+
+		}
+	},
+	methods: {
+		wxLogin() {
+			this.fire('wxLogin')
+		},
+		simulateLogin() {
+			this.fire('simulateLogin')
+		}
+	}
+}
+</script>
+<style>
+.login {
+	align-items: center;
+	height: 100%;
+}
+.login-logo {
+	width: 87px;
+	height: 45px;
+	margin-top: 90px;
+}
+.login-logo-img{
+	width: 100%;
+}
+.login-tip {
+	text-align: center;
+	margin-top: 66px;
+	font-size: 15px;
+	color: #fe904a;
+}
+.login-btn {
+	border: none;
+	font-size: 16px;
+	border-radius: 20px;
+	padding: 12px 20px;
+	margin-top: 20px;
+	color: white;
+}
+.login-btn:active {
+	opacity: 0.7;
+}
+.login-blue {
+	background-color: #339dff;
+}
+.login-orange {
+	background-color: #ffad00;
+}
+</style>

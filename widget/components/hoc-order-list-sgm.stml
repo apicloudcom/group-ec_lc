@@ -1,0 +1,256 @@
+<template>
+	<scroll-view class="order-list" scroll-y>
+		<view class="order-list-item" v-for="(item,index) in orderList" @click="orderItemClick(item)">
+			<view class="order-list-item-top">
+				<text class="order-list-item-top-text">订单编号: {{item.orderid}}</text>
+				<text class="order-list-item-top-text">{{item.status_str}}</text>
+			</view>
+			<view class="order-list-item-goods">
+				<view class="order-list-item-goods-item" v-for="good in item.buy_data" @click="goodsItemClick(good)">
+					<img class="order-list-item-goods-img" :src="good.image" />
+					<view class="order-list-item-goods-right">
+						<text class="order-list-item-goods-title">{good.title}</text>
+						<view class="order-list-item-goods-guige-box">
+							<text class="order-list-item-goods-guige">{good.key ? ' '+good.key : '默认规格'}</text>
+							<text class="order-list-item-goods-num">{'x'+(good.buynum||good.tuinum)}</text>
+						</view>
+						<view class="order-list-item-goods-bottom">
+							<text class="order-list-item-goods-price">{'¥' + (good.act=='buy'?good.delprice:good.price)}</text>
+						</view>
+					</view>
+				</view>
+			</view>
+			<view class="order-list-item-footer" v-if="item.status==2">
+				<text class="order-list-item-footer-szi">共{{item.buy_num || 0}}件商品</text>
+				<view class="flex1"></view>
+				<text class="order-list-item-footer-szi">合计：</text>
+				<text class="order-list-item-footer-rzi">￥{{item.pay_price}}</text>
+			</view>
+			<view class="order-list-item-footer" v-if="item.status==2">
+				<text class="order-list-item-footer-tuantext">还差</text>
+				<text class="order-list-item-footer-tuannum">{{item.cnum}}</text>
+				<text class="order-list-item-footer-tuantext">人拼成，</text>
+				<hoc-count-down-sgm time={item.endmiao} desc="剩余"></hoc-count-down-sgm>
+				<view class="flex1"></view>
+				<text class="order-list-btn order-list-btn-orange" data-index={index} @click="fnInvite(item)">邀请好友</text>
+			</view>
+			<view class="order-list-item-footer" v-else>
+				<text class="order-list-item-footer-szi">共{{item.buy_num || 0}}件商品，合计:</text>
+				<text class="order-list-item-footer-rzi">￥ {{item.pay_price}}</text>
+				<view class="flex1"></view>
+				<!-- 取消订单 未支付 -->
+				<text class="order-list-btn order-list-btn-gray" v-if="item.status == 1" @click="fnCancelOrder(item)">取消订单</text>
+				<text class="order-list-btn order-list-btn-orange" v-if="item.status == 1" @click="fnPayOrder(item)">立即付款</text>
+				<!-- 取消订单 已支付 -->
+				<text class="order-list-btn order-list-btn-gray" v-if="item.status > 1 && item.status < 4"
+					@click="fnCancelOrderPay(item)">取消订单</text>
+				<!-- 确认收货 -->
+				<text class="order-list-btn order-list-btn-orange" v-if="item.status == 4" @click="fnConfirmOrder(item)">确认收货</text>
+			</view>
+		</view>
+	</scroll-view>
+</template>
+<script>
+import './hoc-count-down-sgm.stml'
+export default {
+	name: 'hoc-order-list-sgm',
+	apiready() {//like created
+
+	},
+	data() {
+		return {
+			orderList: this.props.orderList || [
+				{
+					"id": "5a613c40-af02-11ec-b547-65deeb33f30d",
+					"orderid": "202203290948386376", 
+					"status": 5, 
+					"type": "wuliu", 
+					"ispay": 0, 
+					"pay_price": "202",
+                    "buy_num": 8,
+					"endmiao": 5000000, 
+					"buy_data": [
+						{
+							"id": "13e11620-a3b1-11ec-9291-8d2664d910ab", 
+							"title": "手工竹编制品竹筛竹篮", 
+							"image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e7de6625952baba9db04f84794649d16.JPG", 
+							"price": 26, 
+							"delprice": 35, 
+							"yunfei_type": "none", 
+							"yunfei_money": null, 
+							"ku_num": 500, 
+							"images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/ebfd1ae3a614ca52091b852bf2163172.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e7de6625952baba9db04f84794649d16.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/dc65e7ee23a7488c34913cdc03e121d9.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/7920a38a40a352ae776e11dc6d16a6ef.JPG",
+							"dw": "个", 
+							"isjia": 1, 
+							"pnum": 3, 
+							"key": "一个", 
+							"buynum": 1, 
+							"act": "tuan"
+						}, { 
+						"id": "a98a2b40-a392-11ec-9d92-1d3a9123970e", 
+						"title": "木质碾 农家石磨模型", 
+						"image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/22b6eea61c1ad32b318955b2006392c4.jpg", 
+						"price": 16.5, 
+						"delprice": 25, 
+						"yunfei_type": "none", 
+						"yunfei_money": null, 
+						"ku_num": 33, 
+						"images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/22b6eea61c1ad32b318955b2006392c4.jpg", 
+						"dw": "个", 
+						"isjia": 1, 
+						"pnum": 2, 
+						"key": "一个", 
+						"buynum": 7, 
+						"act": "buy" 
+					}],
+					"buy_datanew": null, 
+					"paytime": null, 
+					"istuan": 1, 
+					"tuanid": null, 
+					"tuan_maxnum": 3, 
+					"tuan_buynum": 1, 
+					"item_price": 26, 
+					"status_str": "已关闭",
+					"cnum": 3
+				}
+            ]
+		}
+	},
+	methods: {
+		orderItemClick(item) {
+			this.fire('orderItemClick', item)
+		},
+		goodsItemClick(item) {
+			api.openWin({
+				name: 'order_detail',
+				url:'widget://pages/order_detail/order_detail'
+			})
+			this.fire('goodsItemClick', item)
+		},
+		fnCancelOrder(item) {
+			this.fire('fnCancelOrder', item)
+		},
+		fnPayOrder(item) {
+			this.fire('fnPayOrder', item)
+		},
+		fnCancelOrderPay(item) {
+			this.fire('fnCancelOrderPay', item)
+		},
+		fnInvite(item) {
+			this.fire('fnInvite', item)
+		}
+	}
+}
+</script>
+<style>
+.order-list {
+	flex: 1;
+}
+.order-list-item {
+	width: 100%;
+	background: #ffffff;
+	margin-top: 8px;
+}
+.order-list-item-top {
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	height: 44px;
+	padding: 0 15px;
+	border-bottom: 1px solid #f8f8f8;
+}
+.order-list-item-top-text {
+	font-size: 14px;
+	color: #333333;
+}
+.order-list-item-footer {
+	flex-direction: row;
+	align-items: center;
+	height: 44px;
+	padding: 0 15px;
+	border-bottom: 1px solid #f8f8f8;
+}
+.order-list-item-footer-tuantext {
+	font-size: 12px;
+	color: #333333;
+}
+.order-list-item-footer-tuannum {
+	font-size: 12px;
+	color: #ff7037;
+	margin: 0 3px;
+}
+.order-list-item-footer-szi {
+	font-size: 12px;
+	color: #333333;
+}
+.order-list-item-footer-rzi {
+	font-size: 16px;
+	color: #fe5c00;
+}
+.flex1 {
+	flex: 1;
+}
+.order-list-btn {
+	width: 70px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	margin-left: 8px;
+	border-radius: 2px;
+	font-size: 14px;
+	padding: 0 3px;
+}
+.order-list-btn-gray {
+	background-color: white;
+	border: 1px solid #b5b5b5;
+	color: #999999;
+}
+.order-list-btn-orange {
+	background-color: #339dff;
+	color: white;
+}
+
+.order-list-item-goods {
+	background-color: white;
+}
+.order-list-item-goods-item {
+	flex-direction: row;
+	padding-bottom: 15px;
+	margin: 15px 15px 0;
+	border-bottom: 1px solid #f8f8f8;
+}
+.order-list-item-goods-img {
+	width: 68px;
+	height: 68px;
+	margin-right: 12px;
+	border-radius: 4px;
+}
+.order-list-item-goods-right {
+	align-content: center;
+	flex: 1;
+}
+.order-list-item-goods-title {
+	font-size: 14px;
+	color: #333333;
+}
+.order-list-item-goods-guige-box {
+	flex-direction: row;
+	justify-content: space-between;
+	margin-top: 5px;
+}
+.order-list-item-goods-guige,
+.order-list-item-goods-num {
+	font-size: 12px;
+	color: #999999;
+}
+.order-list-item-goods-bottom {
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+}
+.order-list-item-goods-price {
+	font-size: 14px;
+	color: #fe904a;
+}
+</style>

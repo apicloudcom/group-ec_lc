@@ -1,0 +1,48 @@
+<template>
+    <view class="page">
+        <safe-area></safe-area>
+        <hoc-user-panel-sgm></hoc-user-panel-sgm>
+        <hoc-orderbtn-group-sgm :btnList="hocOrderbtnGroupSgmBtnList"></hoc-orderbtn-group-sgm>
+        <hoc-user-menu-od />
+    </view>
+</template>
+<script>
+import '../../components/hoc-personal-data-sgm.stml';
+import "../../components/hoc-user-panel-sgm.stml";
+import "../../components/hoc-orderbtn-group-sgm.stml";
+import "../../components/hoc-user-menu-od.stml";
+export default {
+    name: 'user',
+    apiready() { //like created
+    },
+    data() {
+        return {
+            hocOrderbtnGroupSgmBtnList: [{
+                icon: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f9598c0f83fd29b3e4ca2a4841ab0e74.png",
+                title: "\u5F85\u6210\u56E2",
+                curNum: 3
+            }, {
+                icon: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/ed4e2be97367495159c485945c27f8c1.png",
+                title: "\u5F85\u53D1\u8D27"
+            }, {
+                icon: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/7536dd50631ca84685212723acaef895.png",
+                title: "\u5F85\u6536\u8D27"
+            }, {
+                icon: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/9e3281f3b18e74bade2d3f34129eb014.png",
+                title: "\u5DF2\u5B8C\u6210"
+            }, {
+                icon: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/23d1c533a1a64b2729d340ddb6fb6ecf.png",
+                title: "\u552E\u540E",
+                curNum: 5
+            }]
+        };
+    },
+    methods: {}
+};
+</script>
+<style>
+.page {
+    height: 100%;
+    background-color: #f8f8f8;
+}
+</style>

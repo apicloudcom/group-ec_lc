@@ -1,0 +1,34 @@
+<template>
+    <view class="page">
+        <safe-area></safe-area>
+        <hoc-nav-bar-sgm title="分类" />
+        <view class="sort-container">
+            <hoc-slide-bar-sgm />
+            <hoc-classify-list-sgm />
+        </view>
+    </view>
+</template>
+<script>
+import '../../components/hoc-slide-bar-sgm.stml';
+import '../../components/hoc-classify-list-sgm.stml';
+import '../../components/hoc-nav-bar-sgm.stml';
+export default {
+    name: 'sort',
+    apiready() { //like created
+    },
+    data() {
+        return {};
+    },
+    methods: {}
+};
+</script>
+<style>
+.page {
+    height: 100%;
+    background-color: #f8f8f8;
+}
+.sort-container {
+    flex: 1;
+    flex-direction: row;
+}
+</style>

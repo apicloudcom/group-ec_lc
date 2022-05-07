@@ -1,0 +1,66 @@
+<!--我的-头部个人信息面板-->
+<template>
+	<view class="hoc-user-panel-sgm" @click="handleClick">
+		<image class="hoc-user-panel-sgm_bg" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4ab30505532e709b72bc49fde2ff3b2b.png"></image>
+		<view class="hoc-user-panel-sgm-wrap">
+			<img class="hoc-user-panel-sgm-logo" :src="userInfo.avatar" mode="aspectFill"/>
+			<text class="hoc-user-panel-sgm-name">{{userInfo ? userInfo.nickname : '您还未登录，去登录'}}</text>
+			<image class="hoc-user-panel-sgm-gol" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/7158c8c5425bd78b31d74da4ca8563f2.png"></image>
+		</view>
+	</view>
+</template>
+<script>
+export default {
+	name: 'hoc-user-panel-sgm',
+	apiready() {//like created
+
+	},
+	data() {
+		return {
+			userInfo: this.props.userInfo || {
+                "id": '111',
+                "avatar": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
+                "nickname": "樱桃小丸子"
+            }
+		}
+	},
+	methods: {
+		handleClick() {
+			this.fire('handleClick')
+		}
+	}
+}
+</script>
+<style>
+.hoc-user-panel-sgm{
+    height: 126px;
+}
+.hoc-user-panel-sgm_bg{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.hoc-user-panel-sgm-wrap{
+	flex-direction: row;
+	align-items: center;
+    height: 100%;
+}
+.hoc-user-panel-sgm-logo{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+	margin-left: 20px;
+	background-color: #f8f8f8;
+}
+.hoc-user-panel-sgm-name{
+	flex: 1;
+    font-size: 17px;
+    color: white;
+	margin: 0 15px;
+}
+.hoc-user-panel-sgm-gol{
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+}
+</style>

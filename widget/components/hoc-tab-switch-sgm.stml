@@ -1,0 +1,79 @@
+<!--我的订单-tab切换-->
+<template>
+<view class="tabs" scroll-x :show-scrollbar="false">
+	<view
+		v-for="(item, index) in (tabList || defaultTabBarList)"
+		:key="item.type"
+		class="nav_one"
+		@click="tabClick(item)">
+		<text class={0==index?'nav_zi nav_zi_on':'nav_zi'}>{item.text}</text>
+	</view>
+</view>
+
+</template>
+<script>
+export default {
+	name: 'hoc-tab-switch-sgm',
+	apiready(){//like created
+
+	},
+	props: {
+		tabList: Array,
+		curTabIndex: Number
+	},
+	data() {
+		return{
+			defaultTabBarList: this.props.tabList || [{
+				text: '全部',
+				type: 0
+			},{
+				text: '待付款',
+				type: 1
+			},{
+				text: '待成团',
+				type: 2
+			},{
+				text: '待发货',
+				type: 3
+			},{
+				text: '待收货',
+				type: 4
+			},{
+				text: '已完成',
+				type: 5
+			}],
+			curTab: this.props.curTab || 0
+		}
+	},
+	methods: {
+		tabClick(item) {
+			this.data.curTab = item.type;
+			this.fire('tabClick', item)
+		}
+	}
+}
+</script>
+<style>
+.tabs {
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	height: 44px;
+	background-color: white;
+}
+.nav_one {
+	flex: 1;
+	justify-content: center;
+	align-items: center;
+}
+.nav_zi {
+	padding: 7px 0;
+	font-size: 14px;
+	color: #999999;
+	border-bottom: none;
+}
+.nav_zi_on {
+	color: #ff7037;
+	border-bottom: 2px solid #ff7037;
+}
+</style>

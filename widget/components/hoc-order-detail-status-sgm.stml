@@ -1,0 +1,58 @@
+<template>
+	<view class="order-detail-statetip">
+		<view class="order-detail-statetip-top">
+			<text class="order-detail-statetip-text">{this.props.info ? this.props.info.status_str : '待发货'}</text>
+			<view class="order-detail-statetip-time">
+				<image class="order-detail-statetip-time-icon" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/9f8bece1f57e9c1215efd6de6948e5ed.png"></image>
+				<hoc-count-down-sgm style="color: #fff; font-size: 14px;" :time="this.props.info ? this.props.info.endmiao : '200000'" desc="剩余时间" style="color:white; font-size:14px;"></hoc-count-down-sgm>
+			</view>
+		</view>
+		<text class="order-detail-statetip-tips">{this.props.info ? this.props.infodesc : '请耐心等待，将尽快为您安排发货'}</text>
+	</view>
+</template>
+<script>
+import './hoc-count-down-sgm.stml'
+export default {
+	name: 'hoc-order-detail-status-sgm',
+	apiready() {//like created
+
+	},
+	data() {
+		return {
+
+		}
+	},
+	methods: {
+
+	}
+}
+</script>
+<style>
+.order-detail-statetip {
+	padding: 15px;
+	background-image: linear-gradient(to bottom, #2f9bff, #44a5ff);
+}
+.order-detail-statetip-top {
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+.order-detail-statetip-time {
+	flex-direction: row;
+	align-items: center;
+}
+.order-detail-statetip-time-icon{
+	width: 14px;
+	height: 14px;
+	margin-right: 4px;
+}
+.order-detail-statetip-text {
+	font-size: 17px;
+	color: white;
+}
+.order-detail-statetip-tips {
+	margin-top: 10px;
+	font-size: 14px;
+	color: white;
+}
+</style>

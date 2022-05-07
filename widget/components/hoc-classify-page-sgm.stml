@@ -1,0 +1,36 @@
+<template>
+	<safe-area>
+		<!-- 头部导航 -->
+        <hoc-nav-bar-sgm :isShowBack="true" title="分类"/>
+		<view class="hoc-classify-page-sgm">
+			<scroll-view class="scroll_left" scroll-y :show-scrollbar="false">
+				<hoc-slide-bar-sgm/>
+			</scroll-view>
+			<scroll-view scroll-y :show-scrollbar="false">
+				<hoc-classify-list-sgm @classifyItemClick="fnOpenGoodslist"/>
+			</scroll-view>
+		</view>
+	</safe-area>
+</template>
+<script>
+import '../../components/feature-component/hoc-nav-bar-sgm.stml';
+import '../../components/feature-component/hoc-slide-bar-sgm.stml';
+import '../../components/feature-component/hoc-classify-list-sgm.stml';
+export default {
+	name: 'hoc-classify-page-sgm',
+	methods: {
+		fnOpenGoodslist(e){
+			let dataset = e.detail;
+			console.log('进入到分类详情了'+JSON.stringify(e))
+		}
+	}
+}
+</script>
+<style>
+.hoc-classify-page-sgm {
+	display: flex;
+	flex-direction: row;
+	height: 100%;
+    background-color: #f6f6f6;
+}
+</style>

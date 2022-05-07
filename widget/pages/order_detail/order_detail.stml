@@ -1,0 +1,30 @@
+<template>
+    <view class="page">
+        <safe-area></safe-area>
+        <hoc-nav-bar-sgm isShowBack title="订单详情" />
+        <hoc-order-detail-status-sgm />
+        <hoc-order-address-sgm />
+        <hoc-order-goods-list-sgm />
+    </view>
+</template>
+<script>
+import '../../components/hoc-nav-bar-sgm.stml';
+import '../../components/hoc-order-detail-status-sgm.stml';
+import '../../components/hoc-order-address-sgm.stml';
+import '../../components/hoc-order-goods-list-sgm.stml';
+export default {
+    name: 'order_detail',
+    apiready() { //like created
+    },
+    data() {
+        return {};
+    },
+    methods: {}
+};
+</script>
+<style>
+.page {
+    height: 100%;
+    background-color: #f8f8f8;
+}
+</style>

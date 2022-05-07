@@ -1,0 +1,36 @@
+<template>
+	<safe-area class="hoc-pay-pindan-page-sgm">
+        <hoc-nav-bar-sgm  title="发起拼团"/>
+		<scroll-view scroll-y :show-scrollbar="false" style="flex: 1;">
+			<hoc-pay-address-sgm />
+			<hoc-order-goods-list-sgm/>
+			<hoc-form-list-sgm/>
+			<hoc-pin-rules-sgm/>
+		</scroll-view>
+        <hoc-pay-footer-btn-sgm @fnGoPay="fnGoPay"/>
+	</safe-area>
+</template>
+<script>
+import '../../components/feature-component/hoc-nav-bar-sgm.stml'
+import '../../components/feature-component/hoc-pay-address-sgm.stml'
+import '../../components/feature-component/hoc-order-goods-list-sgm.stml'
+import '../../components/feature-component/hoc-form-list-sgm.stml'
+import '../../components/feature-component/hoc-pin-rules-sgm.stml'
+import '../../components/feature-component/hoc-pay-footer-btn-sgm.stml'
+export default {
+    name: 'hoc-pay-pindan-page-sgm',
+    methods: {
+        fnGoPay() {
+            api.toast({
+                msg: '点击支付按钮了!'
+            })
+        }
+    }
+}
+</script>
+<style>
+.hoc-pay-pindan-page-sgm {
+    height: 100%;
+    background: #f8f8f8;
+}
+</style>

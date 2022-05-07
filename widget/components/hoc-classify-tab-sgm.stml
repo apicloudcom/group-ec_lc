@@ -1,0 +1,80 @@
+<!--首页-分类-->
+<template>
+	<view class="index-classify" :show-scrollbar="false" scroll-x>
+		<view v-for="(item,index) in classifylist" class="index-classify-item" @click="classifyClick(item)">
+			<image class="index-classify-item-icon" :src="item.icon"></image>
+			<text class="index-classify-item-text">{{item.name}}</text>
+		</view>
+	</view>
+</template>
+<script>
+export default {
+	name: 'hoc-classify-tab-sgm',
+	apiready() {//like created
+
+	},
+	data() {
+		return {
+			classifylist: this.props.classifylist || [
+				{
+					"id": "f7cf34d0-d6e8-11ea-8546-397f48399cb9",
+					"name": "特色美食",
+					"icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/f431072b8b58f5eb2adae2d6167c4a14.JPG"
+				},
+				{
+					"id": "765fdbc0-dba2-11ea-a68f-873831895ca3",
+					"name": "乡土文创",
+					"icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/1825d8792308e9ba9cb9ad9c6e5d1380.JPG"
+				},
+				{
+					"id": "03e206d0-d6e9-11ea-8546-397f48399cb9",
+					"name": "农耕课堂",
+					"icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/20af6bccfa9fff071477b1708743f9e1.JPG"
+				},
+				{
+					"id": "22737f20-d6e9-11ea-8546-397f48399cb9",
+					"name": "初心笃志",
+					"icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/a77b21b571526bfba17131c44b957c55.JPG"
+				}
+			]
+		}
+	},
+	methods: {
+		classifyClick(item) {
+			api.setTabBarAttr({index:1})
+			this.fire('classifyClick', item)
+		}
+	}
+}
+</script>
+<style>
+.index-classify {
+	width: 100%;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-around;
+	padding: 10px 0;
+	background-color: #fff;
+}
+
+.index-classify-item {
+	width: 25%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+}
+
+.index-classify-item-icon {
+	width: 50px;
+	height: 50px;
+	margin: 16px auto 8px;
+}
+
+.index-classify-item-text {
+	text-align: center;
+	line-height: 17px;
+	height: 17px;
+	font-size: 12px;
+	color: #666666;
+}
+</style>

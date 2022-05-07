@@ -1,0 +1,49 @@
+<template>
+	<safe-area class="hoc-pay-page-sgm">
+        <hoc-nav-bar-sgm title="立即付款" :isShowBack="true"/>
+		<scroll-view scroll-y :show-scrollbar="false" style="flex: 1;">
+			<hoc-pay-address-sgm />
+			<hoc-order-goods-list-sgm />
+			<hoc-form-list-sgm  :formList="formList"/>
+			<hoc-pay-remark-sgm />
+		</scroll-view>
+		<hoc-pay-footer-btn-sgm @fnGoPay="fnGoPay"/>
+	</safe-area>
+</template>
+<script>
+import '../../components/feature-component/hoc-nav-bar-sgm.stml'
+import '../../components/feature-component/hoc-pay-address-sgm.stml'
+import '../../components/feature-component/hoc-order-goods-list-sgm.stml'
+import '../../components/feature-component/hoc-form-list-sgm.stml'
+import '../../components/feature-component/hoc-pay-remark-sgm.stml'
+import '../../components/feature-component/hoc-pay-footer-btn-sgm.stml'
+export default {
+    name: 'hoc-pay-page-sgm',
+	data() {
+        return {
+            formList: [{
+                label: '商品金额',
+                text: '￥120',
+                id: '11'
+            }, {
+                label: '邮费',
+                text: '￥12',
+                id: '22'
+            }]
+        }
+    },
+    methods: {
+        fnGoPay() {
+            api.toast({
+                msg: '点击支付按钮了!'
+            })
+        }
+    }
+}
+</script>
+<style>
+.hoc-pay-page-sgm {
+    height: 100%;
+    background: #f8f8f8;
+}
+</style>

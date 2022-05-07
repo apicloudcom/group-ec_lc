@@ -1,0 +1,291 @@
+<template>
+    <safe-area>
+        <!-- 头部导航 -->
+        <hoc-nav-bar-sgm :isShowBack="true"/>
+        <!-- 搜索 -->
+        <hoc-search-bar-sgm :isClick="true" @searchClick="openSearch" :isClick="true"/>
+        <scroll-view class="hoc-index-page-sgm" scroll-y :show-scrollbar="false">
+            <!-- banner -->
+            <hoc-swiper-sgm/>
+            <!-- 拼团成功信息 -->
+            <hoc-spell-succtip-sgm @handleClick="fnOpenGoodsDetails"/>
+            <!-- 分类 -->
+            <hoc-classify-tab-sgm @classifyClick="fnOpenClassPage"/>
+            <!-- 活动、推荐专区 -->
+            <hoc-activity-area-sgm
+                @clickMoreBtn="fnOpenMoreZonePage"
+                @clickGoodsItem="fnOpenDetails"
+                v-for="items in goodsList"
+                :goodsInfo="items"/>
+        </scroll-view>
+     </safe-area>
+</template>
+<script>
+import '../../components/feature-component/hoc-nav-bar-sgm.stml'
+import '../../components/feature-component/hoc-search-bar-sgm.stml'
+import '../../components/feature-component/hoc-swiper-sgm.stml'
+import '../../components/feature-component/hoc-spell-succtip-sgm.stml'
+import '../../components/feature-component/hoc-classify-tab-sgm.stml'
+import '../../components/feature-component/hoc-activity-area-sgm.stml'
+const goodsList = [
+    {
+        "name": "精品推荐",
+        "key": "top1",
+        "data": [
+            {
+                "id": "0e96b000-a3b4-11ec-9291-8d2664d910ab",
+                "title": "农家自晒野生小鱼干",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/2bf63f9e260e0c13b6c328cd5818a6c2.JPG",
+                "price": 15,
+                "delprice": 16,
+                "buy_num": 236,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/57eab907dfcf021a3a4e1f48f5ff497f.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/26fbf79f86313b1ec25f0476fb215c87.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6cce14fca96571954d86cba43d71425b.JPG",
+                "dw": "包",
+                "pnum": 2,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/57eab907dfcf021a3a4e1f48f5ff497f.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/26fbf79f86313b1ec25f0476fb215c87.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6cce14fca96571954d86cba43d71425b.JPG"
+                ],
+                "pnumstr": "双"
+            },
+            {
+                "id": "d108e510-a3b2-11ec-9291-8d2664d910ab",
+                "title": "菊花胸针",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/902810f303bc03d98089a0b2b8207a1b.JPG",
+                "price": 55,
+                "delprice": 60,
+                "buy_num": 67,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/902810f303bc03d98089a0b2b8207a1b.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/093278588af1153c648613cbd9039537.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/96c8bcad27da473e89093fcaeaf358e2.JPG",
+                "dw": "个",
+                "pnum": 2,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/902810f303bc03d98089a0b2b8207a1b.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/093278588af1153c648613cbd9039537.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/96c8bcad27da473e89093fcaeaf358e2.JPG"
+                ],
+                "pnumstr": "双"
+            },
+            {
+                "id": "80b24b70-a3b1-11ec-9291-8d2664d910ab",
+                "title": "手绘农耕文化装饰画耕织图",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/1daa1e9d1416dda566140312a57641cc.JPG",
+                "price": 60,
+                "delprice": 66,
+                "buy_num": 12,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/1daa1e9d1416dda566140312a57641cc.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/efdfa296893ef38f05b300e8be8cefdb.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/b6d589e4c5dcc935403295943dda3479.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/ac9812f1b9b239ae02eb4916c223a1f6.JPG",
+                "dw": null,
+                "pnum": 3,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/1daa1e9d1416dda566140312a57641cc.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/efdfa296893ef38f05b300e8be8cefdb.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/b6d589e4c5dcc935403295943dda3479.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/ac9812f1b9b239ae02eb4916c223a1f6.JPG"
+                ],
+                "pnumstr": "三"
+            },
+            {
+                "id": "71772cd0-a3b0-11ec-9291-8d2664d910ab",
+                "title": "拼装摆件古农机具模型",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6d054eab3a0a6e450fd3e05d22681d1c.JPG",
+                "price": 50,
+                "delprice": 66,
+                "buy_num": 44,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6d054eab3a0a6e450fd3e05d22681d1c.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/712877bd4e4b8a010294bace9a6da08b.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/62b702c03ea1e4250101fec4b70b3942.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/d69d6e9075ca9900a8656268061cf5c0.JPG",
+                "dw": "件",
+                "pnum": 2,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6d054eab3a0a6e450fd3e05d22681d1c.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/712877bd4e4b8a010294bace9a6da08b.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/62b702c03ea1e4250101fec4b70b3942.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/d69d6e9075ca9900a8656268061cf5c0.JPG"
+                ],
+                "pnumstr": "双"
+            }
+        ]
+    },
+    {
+        "name": "活动推荐",
+        "key": "top2",
+        "data": [
+            {
+                "id": "afe6c1b0-a3b0-11ec-9291-8d2664d910ab",
+                "title": "创意复古农村田园微景观",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/db6bfcbbbb04ef0a30e78f45162fcc8c.JPG",
+                "price": 29,
+                "delprice": 50,
+                "buy_num": 23,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/4f23d780275d54d260ff5d0d3774f676.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/951e46ce1b30862a214fc36fa4fa8a56.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/db6bfcbbbb04ef0a30e78f45162fcc8c.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/226b144c86aca48201332f6a20deb457.JPG",
+                "dw": "个",
+                "pnum": 3,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/4f23d780275d54d260ff5d0d3774f676.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/951e46ce1b30862a214fc36fa4fa8a56.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/db6bfcbbbb04ef0a30e78f45162fcc8c.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/226b144c86aca48201332f6a20deb457.JPG"
+                ],
+                "pnumstr": "三"
+            },
+            {
+                "id": "9264cf80-a3ae-11ec-9291-8d2664d910ab",
+                "title": "我爱中国玻璃门贴纸装饰文化贴",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/630d1448e762614bcf2260014e8928f2.JPG",
+                "price": 5,
+                "delprice": 8,
+                "buy_num": 56,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/630d1448e762614bcf2260014e8928f2.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6002b56d189a13de2fa0ec625205809e.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/759141662a95264eee8dfba27d9889bb.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/95c12022e7c389bf0862c6d8c636ffb7.JPG",
+                "dw": null,
+                "pnum": 3,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/630d1448e762614bcf2260014e8928f2.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6002b56d189a13de2fa0ec625205809e.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/759141662a95264eee8dfba27d9889bb.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/95c12022e7c389bf0862c6d8c636ffb7.JPG"
+                ],
+                "pnumstr": "三"
+            },
+            {
+                "id": "11d2d290-a390-11ec-9d92-1d3a9123970e",
+                "title": "崔店•印象钥匙扣",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/795d1e3fa2272f2c1e034996e2e232a3.jpg",
+                "price": 15.6,
+                "delprice": 20,
+                "buy_num": 10,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/795d1e3fa2272f2c1e034996e2e232a3.jpg",
+                "dw": "个",
+                "pnum": 2,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/795d1e3fa2272f2c1e034996e2e232a3.jpg"
+                ],
+                "pnumstr": "双"
+            },
+            {
+                "id": "55a4ccf0-a38e-11ec-9d92-1d3a9123970e",
+                "title": "纸杯蛋糕",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/4806d1199f5ee6bca9d0b60e27822bff.png",
+                "price": 60,
+                "delprice": 68,
+                "buy_num": 18,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/8a502507442f7649134fa9f2c8478fc4.jpg,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/fd5a7ee4588868f09af3bc72289cd9d7.png,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/a5250e2babf49edbcb2683916ecd66d6.jpg,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/4806d1199f5ee6bca9d0b60e27822bff.png,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/65adf71f6f126f4661c9c793ddcaf0db.jpg",
+                "dw": "套",
+                "pnum": 2,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/8a502507442f7649134fa9f2c8478fc4.jpg",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/fd5a7ee4588868f09af3bc72289cd9d7.png",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/a5250e2babf49edbcb2683916ecd66d6.jpg",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/4806d1199f5ee6bca9d0b60e27822bff.png",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/65adf71f6f126f4661c9c793ddcaf0db.jpg"
+                ],
+                "pnumstr": "双"
+            }
+        ]
+    },
+    {
+        "data": [
+            {
+                "id": "0e96b000-a3b4-11ec-9291-8d2664d910ab",
+                "title": "农家自晒野生小鱼干",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/2bf63f9e260e0c13b6c328cd5818a6c2.JPG",
+                "price": 15,
+                "delprice": 16,
+                "buy_num": 236,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/57eab907dfcf021a3a4e1f48f5ff497f.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/26fbf79f86313b1ec25f0476fb215c87.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6cce14fca96571954d86cba43d71425b.JPG",
+                "dw": "包",
+                "pnum": 2,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/57eab907dfcf021a3a4e1f48f5ff497f.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/26fbf79f86313b1ec25f0476fb215c87.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6cce14fca96571954d86cba43d71425b.JPG"
+                ],
+                "pnumstr": "双"
+            },
+            {
+                "id": "d108e510-a3b2-11ec-9291-8d2664d910ab",
+                "title": "菊花胸针",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/902810f303bc03d98089a0b2b8207a1b.JPG",
+                "price": 55,
+                "delprice": 60,
+                "buy_num": 67,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/902810f303bc03d98089a0b2b8207a1b.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/093278588af1153c648613cbd9039537.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/96c8bcad27da473e89093fcaeaf358e2.JPG",
+                "dw": "个",
+                "pnum": 2,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/902810f303bc03d98089a0b2b8207a1b.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/093278588af1153c648613cbd9039537.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/96c8bcad27da473e89093fcaeaf358e2.JPG"
+                ],
+                "pnumstr": "双"
+            },
+            {
+                "id": "96c853e0-a3b2-11ec-9291-8d2664d910ab",
+                "title": "农村老物件复古怀旧装饰品",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e00b30def3f5db00ca64939d2dc5d824.JPG",
+                "price": 17,
+                "delprice": 20,
+                "buy_num": 35,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e00b30def3f5db00ca64939d2dc5d824.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/ee2c3ee35fe8d1599d75eddde84d7a58.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/20af6bccfa9fff071477b1708743f9e1.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/471bf61452b63af87103fab458710c1a.JPG",
+                "dw": "个",
+                "pnum": 3,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e00b30def3f5db00ca64939d2dc5d824.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/ee2c3ee35fe8d1599d75eddde84d7a58.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/20af6bccfa9fff071477b1708743f9e1.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/471bf61452b63af87103fab458710c1a.JPG"
+                ],
+                "pnumstr": "三"
+            },
+            {
+                "id": "4612b4e0-a3b2-11ec-9291-8d2664d910ab",
+                "title": "复古文创特色纪念品冰箱贴",
+                "image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/0f2907ffc56f11a02989134b4a41367f.JPG",
+                "price": 16.5,
+                "delprice": 20,
+                "buy_num": 34,
+                "images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/0f2907ffc56f11a02989134b4a41367f.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/b3a7f33b61a5a48af81ee3e2aadec30b.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/99131b7961cb1116d36bd57ac2b0f727.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/76071da5ddfacd8296a72704e86e354e.JPG",
+                "dw": "套",
+                "pnum": 2,
+                "images_show": [
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/0f2907ffc56f11a02989134b4a41367f.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/b3a7f33b61a5a48af81ee3e2aadec30b.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/99131b7961cb1116d36bd57ac2b0f727.JPG",
+                    "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/76071da5ddfacd8296a72704e86e354e.JPG"
+                ],
+                "pnumstr": "双"
+            }
+        ]
+    }
+]
+export default {
+    name: 'hoc-index-page-sgm',
+    methods: {
+        openSearch(){
+            console.log('点击搜索框了~')
+        },
+
+        fnOpenClassPage(data){
+            console.log('点击进入分类详情了，'+JSON.stringify(data))
+        },
+
+        fnOpenMoreZonePage(data){
+            console.log('活动专区，点击进入更多页面了', JSON.stringify(data))
+        },
+
+        /***
+            * 商品详情
+            * */ 
+        fnOpenDetails(data){
+            console.log('活动专区，点击商品进入商品详情页面了', JSON.stringify(data))
+        },
+
+        fnOpenGoodsDetails(e){
+            console.log('点击拼团成功，进入到拼团商品信息页面', JSON.stringify(e))
+        }
+    }
+}
+</script>
+<style>
+.hoc-index-page-sgm {
+    height: 100%;
+    background: #fff;
+}
+</style>

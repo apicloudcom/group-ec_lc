@@ -1,0 +1,90 @@
+<!--首页-图片轮播-->
+<template>
+	<view class="index-swiper-wrapper">
+		<swiper
+			class="index-swiper"
+			circular
+			autoplay
+			@change="fnSwiperChange">
+			<swiper-item v-for="(item, index) in bannerList">
+				<image
+					class="index-swiper-img"
+					:src="item.icon"
+					mode="aspectFill"
+					@click="fnBannerPage(item)"
+					:data-index="index"/>
+			</swiper-item>
+		</swiper>
+		<view class="index-swiper-dots">
+			<view
+				v-for="(item, index) in bannerList"
+				:class="this.data.current == index ? 'index-swiper-dot-on' : 'index-swiper-dot'"></view>
+		</view>
+	</view>
+</template>
+<script>
+import {indexData} from '../utils/constant.js'
+export default {
+	name: 'hoc-swiper-sgm',
+	apiready() {//like created
+
+	},
+	data() {
+		return {
+			current: this.props.current || 0,
+			bannerList: this.props.list || indexData.banner
+		}
+	},
+	methods: {
+		fnSwiperChange(e) {
+			this.data.current = e.detail.current;
+			this.fire('swiperChange', e.detail)
+		},
+		fnBannerPage(item) {
+			api.openWin({
+				name: 'commodity_detail',
+				url:'widget://pages/commodity_detail/commodity_detail'
+			})
+			this.fire('itemClick', item)
+		}
+	}
+}
+</script>
+<style>
+.index-swiper-wrapper {
+	height: 180px;
+	margin: 10px 15px;
+	background-color: #fff;
+	/* box-shadow: 0 0 5px #f9f9f9; */
+}
+.index-swiper {
+    height: 100%;
+    border-radius: 6px;
+}
+.ndex-swiper-img {
+    width: 100%;
+    height: 100%;
+}
+.index-swiper-dots {
+	flex-direction: row;
+	justify-content: center;
+    width: 100%;
+    height: 4px;
+    position: absolute;
+    bottom: 6px;
+}
+.index-swiper-dot {
+    width: 4px;
+    height: 100%;
+    background-color: rgba(255,255,255,0.4);
+    border-radius: 2px;
+    margin: 0 2px;
+}
+.index-swiper-dot-on {
+    width: 15px;
+    height: 100%;
+    background-color: rgba(255,255,255,1);
+    border-radius: 2px;
+    margin: 0 2px;
+}
+</style>

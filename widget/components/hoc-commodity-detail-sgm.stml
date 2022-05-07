@@ -1,0 +1,56 @@
+<template>
+    <safe-area class="hoc-commodity-detail-sgm">
+        <!-- 头部导航 -->
+        <hoc-nav-bar-sgm :isShowBack="true" title="商品详情"/>
+        <scroll-view style="flex: 1;" :show-scrollbar="false" scroll-y>
+            <!-- 轮播图 -->
+            <hoc-commodity-swiper-sgm/>
+            <!--商品基本信息 -->
+            <hoc-goods-baseinfo-sgm/>
+            <!-- 规格 -->
+            <hoc-check-list-et :list="checklist"/>
+            <!-- 商品详情 -->
+            <hoc-goods-detail-sgm/>
+        </scroll-view>
+        <!-- 操作按钮 -->
+        <hoc-goods-detail-btns-sgm @shareClick="shareClick" @aloneBuyClick="aloneBuyClick" @groupBuyClick="groupBuyClick"/>
+    </safe-area>
+</template>
+<script>
+import '../../components/feature-component/hoc-nav-bar-sgm.stml'
+import '../../components/feature-component/hoc-commodity-swiper-sgm.stml'
+import '../../components/feature-component/hoc-goods-baseinfo-sgm.stml'
+import '../../components/feature-component/hoc-check-list-et.stml'
+import '../../components/feature-component/hoc-goods-detail-sgm.stml'
+import '../../components/feature-component/hoc-goods-detail-btns-sgm.stml'
+
+export default {
+    name: 'hoc-commodity-detail-sgm',
+    data() {
+        return {
+            checklist: [{
+                id: "spell",
+                text: "规格",
+                extraText: "500g"
+            }]
+        }
+    },
+    methods: {
+        shareClick() {
+            console.log('点击分享按钮了')
+        },
+        aloneBuyClick() {
+            console.log('单独购买')
+        },
+        groupBuyClick() {
+            console.log('发起拼团')
+        }
+    }
+}
+</script>
+<style>
+.hoc-commodity-detail-sgm {
+    height: 100%;
+    background: #fff;
+}
+</style>

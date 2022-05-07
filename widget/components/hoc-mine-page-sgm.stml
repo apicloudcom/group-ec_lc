@@ -1,0 +1,51 @@
+<template>
+    <safe-area class="hoc-mine-page-wrapper">
+        <hoc-nav-bar-sgm title="我的"/>
+        <hoc-user-panel-sgm/>
+        <hoc-orderbtn-group-sgm/>
+        <hoc-menu-list-sgm/>
+     </safe-area>
+</template>
+<script>
+import '../../components/feature-component/hoc-nav-bar-sgm.stml'
+import '../../components/feature-component/hoc-user-panel-sgm.stml'
+import '../../components/feature-component/hoc-orderbtn-group-sgm.stml'
+import '../../components/feature-component/hoc-menu-list-sgm.stml'
+export default {
+    name: 'hoc-mine-page-sgm',
+    methods: {
+        openSearch(){
+            console.log('点击搜索框了~')
+        },
+
+        fnOpenClassPage(data){
+            console.log('点击进入分类详情了，'+JSON.stringify(data))
+        },
+
+        fnOpenMoreZonePage(data){
+            console.log('活动专区，点击进入更多页面了', JSON.stringify(data))
+        },
+
+        /***
+            * 商品详情
+            * */ 
+        fnOpenDetails(data){
+            console.log('活动专区，点击商品进入商品详情页面了', JSON.stringify(data))
+        },
+
+        fnOpenGoodsDetails(e){
+            console.log('点击拼团成功，进入到拼团商品信息页面', JSON.stringify(e))
+        }
+    }
+}
+</script>
+<style>
+.hoc-mine-page-wrapper {
+    display: flex;
+    flex-direction: column;
+    background: #f8f8f8;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+</style>
