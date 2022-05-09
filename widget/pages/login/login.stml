@@ -1,6 +1,6 @@
 <template>
     <view class="page">
-        <hoc-login-sgm></hoc-login-sgm>
+        <hoc-login-sgm wxLoginBtnText="微信授权2323登录" simulateLoginBtnText="体验账号登录32323"></hoc-login-sgm>
     </view>
 </template>
 <script>
