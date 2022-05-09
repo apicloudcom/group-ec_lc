@@ -4,16 +4,23 @@
         <hoc-nav-bar-sgm title="商品详情" isShowBack />
         <scroll-view style="flex: 1;" :show-scrollbar="false" scroll-y>
             <!-- 轮播图 -->
-            <hoc-commodity-swiper-sgm />
+            <hoc-commodity-swiper-sgm :swiperList="swiperList" />
             <!--商品基本信息 -->
-            <hoc-goods-baseinfo-sgm />
+            <hoc-goods-baseinfo-sgm
+                isHot={false}
+                price={55}
+                delprice={168}
+                buy_num={1220}
+                title="农家自晒野生小鱼干"
+                yunfei_type="自费"
+                yunfei_money="15" />
             <!-- 规格 -->
             <hoc-check-list-et :list="checklist" />
             <!-- 商品详情 -->
-            <hoc-goods-detail-sgm />
+            <hoc-goods-detail-sgm title="商品详情" info="<p>天然淡晒，干度适中，保持原有风味，肉质鲜美，满口清香，为烹饪好食材</p>" />
         </scroll-view>
         <!-- 操作按钮 -->
-        <hoc-goods-detail-btns-sgm @shareClick="shareClick" @aloneBuyClick="aloneBuyClick" @groupBuyClick="groupBuyClick" />
+        <hoc-goods-detail-btns-sgm @shareClick="shareClick" @aloneBuyClick="aloneBuyClick" @groupBuyClick="groupBuyClick" price={50} pinPrice={22} shareBtnText="分享" aloneBtnText="单独购买" pinBtnText="发起拼团" />
     </safe-area>
 </template>
 <script>
@@ -27,6 +34,7 @@ export default {
     name: 'commodity_detail',
     data() {
         return {
+            swiperList: ["http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/57eab907dfcf021a3a4e1f48f5ff497f.JPG", "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/26fbf79f86313b1ec25f0476fb215c87.JPG", "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6cce14fca96571954d86cba43d71425b.JPG"],
             checklist: [{
                 id: "spell",
                 text: "规格",
@@ -36,13 +44,21 @@ export default {
     },
     methods: {
         shareClick() {
-            console.log('点击分享按钮了');
+            api.toast({
+                msg:'分享商品信息!'
+            })
         },
         aloneBuyClick() {
-            console.log('单独购买');
+            api.openWin({
+                name: 'aloneBuy',
+                url:'../pay/pay.stml'
+            })
         },
         groupBuyClick() {
-            console.log('发起拼团');
+            api.openWin({
+                name: 'groupBuy',
+                url:'../pay/pay.stml'
+            })
         }
     }
 };

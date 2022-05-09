@@ -2,7 +2,7 @@
 <template>
 	<view class="my-btn-group">
 		<view class="my-btn-group-title" @click="gotoOrderList">
-			<text class="my-btn-group-title-text">我的订单</text>
+			<text class="my-btn-group-title-text">{{title}}</text>
 			<img
 				class="my-btn-group-title-img"
 				src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/c89316e175437ebce8f361ef3f9c3973.png"
@@ -26,6 +26,7 @@ export default {
 	data() {
 		return {
 			redDot: this.props.redDot || 0,
+			title: this.props.title || '我的订单',
 			btnList: this.props.btnList || [{
 				icon: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f9598c0f83fd29b3e4ca2a4841ab0e74.png',
 				title: '待成团',
@@ -53,10 +54,6 @@ export default {
 	},
 	methods: {
 		btnClick(item) {
-			api.openWin({
-				name: 'order',
-				url:'widget://pages/order/order'
-			})
 			this.fire('btnClick', item)
 		},
 		gotoOrderList() {

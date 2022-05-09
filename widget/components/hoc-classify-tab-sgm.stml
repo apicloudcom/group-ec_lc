@@ -15,7 +15,7 @@ export default {
 	},
 	data() {
 		return {
-			classifylist: this.props.classifylist || [
+			classifylist: this.props.classifyList || [
 				{
 					"id": "f7cf34d0-d6e8-11ea-8546-397f48399cb9",
 					"name": "特色美食",
@@ -41,7 +41,6 @@ export default {
 	},
 	methods: {
 		classifyClick(item) {
-			api.setTabBarAttr({index:1})
 			this.fire('classifyClick', item)
 		}
 	}

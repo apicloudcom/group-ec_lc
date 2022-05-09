@@ -23,7 +23,42 @@
 	</view>
 </template>
 <script>
-import {indexData} from '../utils/constant.js'
+const indexData = {
+    "banner": [
+        {
+            "id": "d8ebd8a0-d2da-11ea-ab34-1b0cd727d0eb",
+            "title": "创意复古农村田园微景观",
+            "type": "item",
+            "orderby": 1,
+            "addtime": "2020-07-31T03:06:37.226Z",
+            "goodsid": "afe6c1b0-a3b0-11ec-9291-8d2664d910ab",
+            "topid": "top1",
+            "icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/4f23d780275d54d260ff5d0d3774f676.JPG"
+        },
+        {
+            "id": "df67a270-dba1-11ea-a68f-873831895ca3",
+            "title": "崔店村特色菊花酒",
+            "type": "item",
+            "orderby": 1,
+            "addtime": "2020-08-11T07:11:27.255Z",
+            "goodsid": "34b64740-a38d-11ec-9d92-1d3a9123970e",
+            "icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/f24a38c2f517986974fc9257d315208e.JPG"
+        },
+        {
+            "id": "d504d440-a2d5-11ec-9d92-1d3a9123970e",
+            "title": "崔店村优质生态大米正宗新货",
+            "image": null,
+            "type": "item",
+            "content": null,
+            "orderby": 1,
+            "addtime": "2022-03-13T13:59:42.723Z",
+            "goodsid": "0f0c8370-a38c-11ec-9d92-1d3a9123970e",
+            "topid": null,
+            "classid": null,
+            "icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/453f35ef9ac370c8a2e4483098f2ded3.JPG"
+        }
+    ]
+}
 export default {
 	name: 'hoc-swiper-sgm',
 	apiready() {//like created
@@ -41,10 +76,7 @@ export default {
 			this.fire('swiperChange', e.detail)
 		},
 		fnBannerPage(item) {
-			api.openWin({
-				name: 'commodity_detail',
-				url:'widget://pages/commodity_detail/commodity_detail'
-			})
+			console.log(JSON.stringify(item))
 			this.fire('itemClick', item)
 		}
 	}

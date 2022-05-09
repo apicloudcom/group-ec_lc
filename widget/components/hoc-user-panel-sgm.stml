@@ -3,8 +3,8 @@
 	<view class="hoc-user-panel-sgm" @click="handleClick">
 		<image class="hoc-user-panel-sgm_bg" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4ab30505532e709b72bc49fde2ff3b2b.png"></image>
 		<view class="hoc-user-panel-sgm-wrap">
-			<img class="hoc-user-panel-sgm-logo" :src="userInfo.avatar" mode="aspectFill"/>
-			<text class="hoc-user-panel-sgm-name">{{userInfo ? userInfo.nickname : '您还未登录，去登录'}}</text>
+			<img class="hoc-user-panel-sgm-logo" :src="avatar" mode="aspectFill"/>
+			<text class="hoc-user-panel-sgm-name">{{nickname}}</text>
 			<image class="hoc-user-panel-sgm-gol" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/7158c8c5425bd78b31d74da4ca8563f2.png"></image>
 		</view>
 	</view>
@@ -17,11 +17,9 @@ export default {
 	},
 	data() {
 		return {
-			userInfo: this.props.userInfo || {
-                "id": '111',
-                "avatar": "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
-                "nickname": "樱桃小丸子"
-            }
+			id: this.props.id || '111',
+            avatar: this.props.avatar || "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
+            nickname: this.props.nickname || "樱桃小丸子"
 		}
 	},
 	methods: {

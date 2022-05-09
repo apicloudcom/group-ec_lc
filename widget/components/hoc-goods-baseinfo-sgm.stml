@@ -3,18 +3,18 @@
 		<view class="goods-baseinfo-top">
 			<view class="goods-baseinfo-price">
 				<text class="goods-baseinfo-price-symbol">¥</text>
-				<text class="goods-baseinfo-price-price">{{info.price || 16}}</text>
-				<text class="goods-baseinfo-price-delprice">{{info.delprice ? '￥'+info.delprice : '￥66'}}</text>
+				<text class="goods-baseinfo-price-price">{{price || 16}}</text>
+				<text class="goods-baseinfo-price-delprice">{{delprice ? '￥'+delprice : '￥66'}}</text>
 			</view>
 			
-			<view class="goods-baseinfo-hot" v-if="info.isHot">
+			<view class="goods-baseinfo-hot" v-if="isHot == true">
 				<image class="goods-baseinfo-hot-img" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/784e573cab94112b0e91f5c063fee14f.png"></image>
-				<text class="goods-baseinfo-hot-num">{this.fixBuynum(info.buy_num || 22)}</text>
+				<text class="goods-baseinfo-hot-num">{this.fixBuynum(buy_num || 22)}</text>
 			</view>
 		</view>
-		<text class="goods-baseinfo-title">{{info.title}}</text>
-		<text v-if="info.yunfei_type" class="goods-baseinfo-freight">
-			快递：{{info.yunfei_type == 'none' ? '包邮' : `${info.yunfei_money}元`}}
+		<text class="goods-baseinfo-title">{{title}}</text>
+		<text v-if="yunfei_type" class="goods-baseinfo-freight">
+			快递：{{yunfei_type == 'none' ? '包邮' : `${yunfei_money}元`}}
 		</text>
 	</view>
 </template>
@@ -23,15 +23,13 @@
 		name: 'hoc-goods-baseinfo-sgm',
 		data(){
 			return {
-				info: this.props.info || {
-					isHot: true,
-					price: 66,
-					delprice: 166,
-					buy_num: 122,
-					title: '农家自晒野生小鱼干',
-					yunfei_type: '自费',
-					yunfei_money: 15
-				}
+				isHot: this.props.isHot || false,
+				price: this.props.price || 66,
+				delprice: this.props.delprice || 166,
+				buy_num: this.props.buy_num || 122,
+				title: this.props.title || '农家自晒野生小鱼干',
+				yunfei_type: this.props.yunfei_type || '自费',
+				yunfei_money: this.props.yunfei_money || 15
 			}
 		},
 		methods: {

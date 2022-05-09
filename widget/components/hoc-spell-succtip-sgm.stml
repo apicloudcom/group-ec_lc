@@ -3,15 +3,15 @@
 	<view
 		class="pin-success-tip"
 		@click="handleClick"
-		:data-id="pinInfo.goodsid">
+		:data-id="productId">
 		<image
 			class="pin-success-tip-logo"
-			:src="pinInfo.user.avatar || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png'"
+			:src="avatar || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png'"
 			policy="cache_only"
 			mode="aspectFill"/>
-		<text class="pin-success-tip-name">{this.nameHash(pinInfo.user.nickname)} 拼团成功</text>
+		<text class="pin-success-tip-name">{this.nameHash(nickname)} 拼团成功</text>
 		<view style="flex: 1;"></view>
-		<text class="pin-success-tip-time">{this.dateFormat(pinInfo.paytime)}</text>
+		<text class="pin-success-tip-time">{this.dateFormat(paytime)}</text>
 	</view>
 </template>
 <script>
@@ -22,19 +22,15 @@ export default {
 	},
 	data() {
 		return {
-			pinInfo: this.props.pinInfo || {
-				goodsid: '111',
-				paytime: '2022-01-02',
-				user: {
-					avatar: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
-					nickname: '李思思',
-				}
-			}
+			productId: this.props.productId || '111',
+            paytime: this.props.paytime || '2022-01-02',
+            avatar: this.props.avatar || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
+            nickname: this.props.nickname || '樱桃小丸子'
 		}
 	},
 	methods: {
 		handleClick() {
-			this.fire('handleClick', this.data.pinInfo)
+			this.fire('handleClick')
 		},
 		nameHash(uname){
             if (!uname){return ''}

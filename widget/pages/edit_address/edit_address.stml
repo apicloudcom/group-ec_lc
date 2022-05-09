@@ -1,10 +1,8 @@
 <template>
-    <view class="page">
-
-        <safe-area></safe-area>
+    <safe-area class="page">
         <hoc-nav-bar-sgm isShowBack title="新增收货地址" />
-        <hoc-edit-address-sgm />
-    </view>
+        <hoc-edit-address-sgm name="" phone="" qustr="" address="" isDefault={false} />
+    </safe-area>
 </template>
 <script>
 import '../../components/hoc-nav-bar-sgm.stml';

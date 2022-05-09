@@ -1,9 +1,9 @@
 <template>
 	<view class="about-us">
-		<img class="about-us-logo" :src="info.image"/>
-		<text class="about-us-name">{{info.title}}</text>
-		<text class="about-us-version">{{info.version}}</text>
-		<text class="about-us-url">{{info.url}}</text>
+		<img class="about-us-logo" :src="image"/>
+		<text class="about-us-name">{{title}}</text>
+		<text class="about-us-version">{{version}}</text>
+		<text class="about-us-url">{{url}}</text>
 	</view>
 </template>
 <script>
@@ -14,12 +14,10 @@ export default {
 	},
 	data() {
 		return {
-			info: this.props.info || {
-				image: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
-				title: '拼团商城',
-				version: '1.0.98',
-				url: 'www.apicloud.com'
-			}
+			image: this.props.image || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
+			title: this.props.title || '拼团商城',
+			version: this.props.version || '1.0.98',
+			url: this.props.url || 'www.apicloud.com'
 		}
 	},
 	methods: {

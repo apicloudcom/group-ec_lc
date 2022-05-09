@@ -1,10 +1,10 @@
 <!--支付页面-底部操作-->
 <template>
 	<view class="pay-footer">
-		<text class="pay-footer-zi">共{{info.orderBuynum}}件</text>
+		<text class="pay-footer-zi">共{{buyNum}}件</text>
 		<text class="pay-footer-rzi">应付：</text>
 		<text class="pay-footer-szi">¥</text>
-		<text class="pay-footer-mzi">{{info.payPrice}}</text>
+		<text class="pay-footer-mzi">{{payPrice}}</text>
 		<text class="pay-footer-btn" onclick="fnGoPay">去支付</text>
 	</view>
 </template>
@@ -16,10 +16,8 @@ export default {
 	},
 	data() {
 		return {
-			info: this.props.info || {
-				orderBuynum: 12,
-				payPrice: 132
-			}
+			buyNum: this.props.buyNum || 10, 
+            payPrice: this.props.payPrice || 132
 		}
 	},
 	methods: {

@@ -1,10 +1,9 @@
 <template>
-    <view class="page">
-        <safe-area></safe-area>
+    <safe-area class="page">
         <hoc-nav-bar-sgm isShowBack title="我的订单" />
-        <hoc-tab-switch-sgm />
-        <hoc-order-list-sgm />
-    </view>
+        <hoc-tab-switch-sgm :tabList="hocTabSwitchSgmTabList" />
+        <hoc-order-list-sgm :ordeBaseInfo="hocOrderListSgmOrdeBaseInfo" :buyProductList="hocOrderListSgmBuyProductList" />
+    </safe-area>
 </template>
 <script>
 import '../../components/hoc-nav-bar-sgm.stml';
@@ -15,7 +14,53 @@ export default {
     apiready() { //like created
     },
     data() {
-        return {};
+        return {
+            hocTabSwitchSgmTabList: [{
+                text: "全部",
+                value: "all"
+            }, {
+                text: "待付款",
+                value: "pay"
+            }, {
+                text: "待成团",
+                value: "pin"
+            }, {
+                text: "待发货",
+                value: "sendGoods"
+            }, {
+                text: "待收货",
+                value: "getGoods"
+            }, {
+                text: "已完成",
+                value: "done"
+            }],
+            hocOrderListSgmOrdeBaseInfo: {
+                orderid: "202203290948386376",
+                status: 4,
+                pay_price: "26",
+                buy_num: 8,
+                endmiao: 5000000,
+                status_str: "已关闭",
+                cnum: 6
+            },
+            hocOrderListSgmBuyProductList: [{
+                title: "手工竹编制品竹筛竹篮",
+                image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e7de6625952baba9db04f84794649d16.JPG",
+                price: 26,
+                delprice: 35,
+                key: "一个",
+                buynum: 1,
+                act: "tuan"
+            }, {
+                title: "木质碾 农家石磨模型",
+                image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/22b6eea61c1ad32b318955b2006392c4.jpg",
+                price: 16.5,
+                delprice: 25,
+                key: "一个",
+                buynum: 7,
+                act: "buy"
+            }]
+        };
     },
     methods: {}
 };

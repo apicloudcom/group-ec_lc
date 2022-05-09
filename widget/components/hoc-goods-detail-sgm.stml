@@ -3,7 +3,7 @@
 	<view class="goods-detail">
 		<view class="goods-detail-title">
 			<view class="goods-detail-title-line"></view>
-			<text class="goods-detail-title-text">商品详情</text>
+			<text class="goods-detail-title-text">{{title}}</text>
 		</view>
 		<!-- <text class="goods-detail-info">{{info}}</text> -->
 		<view class="goods-detail-info">
@@ -19,6 +19,7 @@ export default {
 	},
 	data() {
 		return {
+			title: this.props.title || '商品详情',
 			info: this.props.info || '<p>天然淡晒，干度适中，保持原有风味，肉质鲜美，满口清香，为烹饪好食材</p>'
 		}
 	},

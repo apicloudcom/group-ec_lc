@@ -88,10 +88,6 @@ export default {
 	},
 	methods: {
 		clickItem(item) {
-            api.openWin({
-                name: 'commodity_detail',
-                url:'widget://pages/commodity_detail/commodity_detail'
-            })
 			this.fire('classifyItemClick', item)
 		}
 	}

@@ -28,7 +28,7 @@ export default {
 	},
 	data() {
 		return {
-			dataList: this.props.addresslist || [
+			dataList: this.props.addressList || [
 				{
 					def: 1,
 					id: '11',

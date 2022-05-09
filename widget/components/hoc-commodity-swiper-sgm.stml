@@ -14,7 +14,7 @@ export default {
     data(){
         return {
             current: 0,
-            swiperList: [
+            swiperList: this.props.swiperList || [
                 "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/57eab907dfcf021a3a4e1f48f5ff497f.JPG",
                 "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/26fbf79f86313b1ec25f0476fb215c87.JPG",
                 "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6cce14fca96571954d86cba43d71425b.JPG"

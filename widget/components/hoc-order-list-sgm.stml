@@ -1,12 +1,12 @@
 <template>
 	<scroll-view class="order-list" scroll-y>
-		<view class="order-list-item" v-for="(item,index) in orderList" @click="orderItemClick(item)">
+		<view class="order-list-item" @click="orderItemClick">
 			<view class="order-list-item-top">
-				<text class="order-list-item-top-text">订单编号: {{item.orderid}}</text>
-				<text class="order-list-item-top-text">{{item.status_str}}</text>
+				<text class="order-list-item-top-text">订单编号: {{ordeBaseInfo.orderid}}</text>
+				<text class="order-list-item-top-text">{{ordeBaseInfo.status_str}}</text>
 			</view>
 			<view class="order-list-item-goods">
-				<view class="order-list-item-goods-item" v-for="good in item.buy_data" @click="goodsItemClick(good)">
+				<view class="order-list-item-goods-item" v-for="good in buyProductList" @click="goodsItemClick(good)">
 					<img class="order-list-item-goods-img" :src="good.image" />
 					<view class="order-list-item-goods-right">
 						<text class="order-list-item-goods-title">{good.title}</text>
@@ -20,32 +20,32 @@
 					</view>
 				</view>
 			</view>
-			<view class="order-list-item-footer" v-if="item.status==2">
-				<text class="order-list-item-footer-szi">共{{item.buy_num || 0}}件商品</text>
+			<view class="order-list-item-footer" v-if="ordeBaseInfo.status==2">
+				<text class="order-list-item-footer-szi">共{{ordeBaseInfo.buy_num || 0}}件商品</text>
 				<view class="flex1"></view>
 				<text class="order-list-item-footer-szi">合计：</text>
-				<text class="order-list-item-footer-rzi">￥{{item.pay_price}}</text>
+				<text class="order-list-item-footer-rzi">￥{{ordeBaseInfo.pay_price}}</text>
 			</view>
-			<view class="order-list-item-footer" v-if="item.status==2">
+			<view class="order-list-item-footer" v-if="ordeBaseInfo.status==2">
 				<text class="order-list-item-footer-tuantext">还差</text>
-				<text class="order-list-item-footer-tuannum">{{item.cnum}}</text>
+				<text class="order-list-item-footer-tuannum">{{ordeBaseInfo.cnum}}</text>
 				<text class="order-list-item-footer-tuantext">人拼成，</text>
-				<hoc-count-down-sgm time={item.endmiao} desc="剩余"></hoc-count-down-sgm>
+				<hoc-count-down-sgm time={ordeBaseInfo.endmiao} desc="剩余"></hoc-count-down-sgm>
 				<view class="flex1"></view>
-				<text class="order-list-btn order-list-btn-orange" data-index={index} @click="fnInvite(item)">邀请好友</text>
+				<text class="order-list-btn order-list-btn-orange" data-index={index} @click="fnInvite">邀请好友</text>
 			</view>
 			<view class="order-list-item-footer" v-else>
-				<text class="order-list-item-footer-szi">共{{item.buy_num || 0}}件商品，合计:</text>
-				<text class="order-list-item-footer-rzi">￥ {{item.pay_price}}</text>
+				<text class="order-list-item-footer-szi">共{{ordeBaseInfo.buy_num || 0}}件商品，合计:</text>
+				<text class="order-list-item-footer-rzi">￥ {{ordeBaseInfo.pay_price}}</text>
 				<view class="flex1"></view>
 				<!-- 取消订单 未支付 -->
-				<text class="order-list-btn order-list-btn-gray" v-if="item.status == 1" @click="fnCancelOrder(item)">取消订单</text>
-				<text class="order-list-btn order-list-btn-orange" v-if="item.status == 1" @click="fnPayOrder(item)">立即付款</text>
+				<text class="order-list-btn order-list-btn-gray" v-if="ordeBaseInfo.status == 1" @click="fnCancelOrder">取消订单</text>
+				<text class="order-list-btn order-list-btn-orange" v-if="ordeBaseInfo.status == 1" @click="fnPayOrder">立即付款</text>
 				<!-- 取消订单 已支付 -->
-				<text class="order-list-btn order-list-btn-gray" v-if="item.status > 1 && item.status < 4"
-					@click="fnCancelOrderPay(item)">取消订单</text>
+				<text class="order-list-btn order-list-btn-gray" v-if="ordeBaseInfo.status > 1 && ordeBaseInfo.status < 4"
+					@click="fnCancelOrderPay">取消订单</text>
 				<!-- 确认收货 -->
-				<text class="order-list-btn order-list-btn-orange" v-if="item.status == 4" @click="fnConfirmOrder(item)">确认收货</text>
+				<text class="order-list-btn order-list-btn-orange" v-if="ordeBaseInfo.status == 4" @click="fnConfirmOrder">确认收货</text>
 			</view>
 		</view>
 	</scroll-view>
@@ -59,85 +59,52 @@ export default {
 	},
 	data() {
 		return {
-			orderList: this.props.orderList || [
-				{
-					"id": "5a613c40-af02-11ec-b547-65deeb33f30d",
-					"orderid": "202203290948386376", 
-					"status": 5, 
-					"type": "wuliu", 
-					"ispay": 0, 
-					"pay_price": "202",
-                    "buy_num": 8,
-					"endmiao": 5000000, 
-					"buy_data": [
-						{
-							"id": "13e11620-a3b1-11ec-9291-8d2664d910ab", 
-							"title": "手工竹编制品竹筛竹篮", 
-							"image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e7de6625952baba9db04f84794649d16.JPG", 
-							"price": 26, 
-							"delprice": 35, 
-							"yunfei_type": "none", 
-							"yunfei_money": null, 
-							"ku_num": 500, 
-							"images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/ebfd1ae3a614ca52091b852bf2163172.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e7de6625952baba9db04f84794649d16.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/dc65e7ee23a7488c34913cdc03e121d9.JPG,http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/7920a38a40a352ae776e11dc6d16a6ef.JPG",
-							"dw": "个", 
-							"isjia": 1, 
-							"pnum": 3, 
-							"key": "一个", 
-							"buynum": 1, 
-							"act": "tuan"
-						}, { 
-						"id": "a98a2b40-a392-11ec-9d92-1d3a9123970e", 
-						"title": "木质碾 农家石磨模型", 
-						"image": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/22b6eea61c1ad32b318955b2006392c4.jpg", 
-						"price": 16.5, 
-						"delprice": 25, 
-						"yunfei_type": "none", 
-						"yunfei_money": null, 
-						"ku_num": 33, 
-						"images": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/22b6eea61c1ad32b318955b2006392c4.jpg", 
-						"dw": "个", 
-						"isjia": 1, 
-						"pnum": 2, 
-						"key": "一个", 
-						"buynum": 7, 
-						"act": "buy" 
-					}],
-					"buy_datanew": null, 
-					"paytime": null, 
-					"istuan": 1, 
-					"tuanid": null, 
-					"tuan_maxnum": 3, 
-					"tuan_buynum": 1, 
-					"item_price": 26, 
-					"status_str": "已关闭",
-					"cnum": 3
-				}
-            ]
+			ordeBaseInfo: this.props.ordeBaseInfo || {
+                orderid: "202203290948386376",
+                status: 5,
+                pay_price: "26",
+                buy_num: 8,
+                endmiao: 5000000,
+                status_str: "已关闭",
+                cnum: 3
+            },
+			buyProductList: this.props.buyProductList || [{
+                title: "手工竹编制品竹筛竹篮",
+                image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e7de6625952baba9db04f84794649d16.JPG",
+                price: 26,
+                delprice: 35,
+                key: "一个",
+                buynum: 1,
+                act: "tuan"
+            }, {
+                title: "木质碾 农家石磨模型",
+                image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/22b6eea61c1ad32b318955b2006392c4.jpg",
+                price: 16.5,
+                delprice: 25,
+                key: "一个",
+                buynum: 7,
+                act: "buy"
+            }]
 		}
 	},
 	methods: {
-		orderItemClick(item) {
-			this.fire('orderItemClick', item)
+		orderItemClick() {
+			this.fire('orderItemClick')
 		},
-		goodsItemClick(item) {
-			api.openWin({
-				name: 'order_detail',
-				url:'widget://pages/order_detail/order_detail'
-			})
-			this.fire('goodsItemClick', item)
+		goodsItemClick() {
+			this.fire('goodsItemClick')
 		},
-		fnCancelOrder(item) {
-			this.fire('fnCancelOrder', item)
+		fnCancelOrder() {
+			this.fire('fnCancelOrder')
 		},
-		fnPayOrder(item) {
-			this.fire('fnPayOrder', item)
+		fnPayOrder() {
+			this.fire('fnPayOrder')
 		},
-		fnCancelOrderPay(item) {
-			this.fire('fnCancelOrderPay', item)
+		fnCancelOrderPay() {
+			this.fire('fnCancelOrderPay')
 		},
-		fnInvite(item) {
-			this.fire('fnInvite', item)
+		fnInvite() {
+			this.fire('fnInvite')
 		}
 	}
 }

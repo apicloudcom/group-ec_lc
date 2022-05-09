@@ -1,11 +1,10 @@
 <template>
-    <view class="page">
-        <safe-area></safe-area>
+    <safe-area class="page">
         <hoc-nav-bar-sgm isShowBack title="订单详情" />
-        <hoc-order-detail-status-sgm />
-        <hoc-order-address-sgm />
-        <hoc-order-goods-list-sgm />
-    </view>
+        <hoc-order-detail-status-sgm statusStr="待发货" desc="请耐心等待，将尽快为您安排发货" />
+        <hoc-order-address-sgm consignee="樱桃小丸子" phone="1234556789" area="北京" detailAddress="海淀区用友" />
+        <hoc-order-goods-list-sgm :list="hocOrderGoodsListSgmList" />
+    </safe-area>
 </template>
 <script>
 import '../../components/hoc-nav-bar-sgm.stml';
@@ -17,7 +16,21 @@ export default {
     apiready() { //like created
     },
     data() {
-        return {};
+        return {
+            hocOrderGoodsListSgmList: [{
+                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
+                title: "商品名称",
+                key: "5个",
+                buynum: 121,
+                price: 600
+            }, {
+                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
+                title: "商品名称",
+                key: "5个",
+                buynum: 12,
+                price: 60
+            }]
+        };
     },
     methods: {}
 };

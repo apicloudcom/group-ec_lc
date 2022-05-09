@@ -2,12 +2,12 @@
     <safe-area class="hoc-pay-pindan-page-sgm">
         <hoc-nav-bar-sgm title="发起拼团" isShowBack />
         <scroll-view scroll-y :show-scrollbar="false" style="flex: 1;">
-            <hoc-pay-address-sgm />
-            <hoc-order-goods-list-sgm />
-            <hoc-form-list-sgm />
-            <hoc-pin-rules-sgm />
+            <hoc-pay-address-sgm consignee="樱桃小丸子" />
+            <hoc-order-goods-list-sgm :list="hocOrderGoodsListSgmList" />
+            <hoc-form-list-sgm :formList="hocFormListSgmFormList" />
+            <hoc-pin-rules-sgm content="<p style='color: #999; font-size: 12px;'>1、24小时内没有拼团成功，自动取消订单</p><p style='color: #999; font-size: 12px;'>2、拼团成功平台会在48小时发货</p><p style='color: #999; font-size: 12px;'>3、拼团成功的不能取消订单！</p>" />
         </scroll-view>
-        <hoc-pay-footer-btn-sgm @fnGoPay="fnGoPay" />
+        <hoc-pay-footer-btn-sgm @fnGoPay="fnGoPay" buyNum={122} payPrice={1322} />
     </safe-area>
 </template>
 <script>
@@ -19,6 +19,33 @@ import '../../components/hoc-pin-rules-sgm.stml';
 import '../../components/hoc-pay-footer-btn-sgm.stml';
 export default {
     name: 'hoc-pay-pindan-page-sgm',
+    data() {
+        return {
+            hocOrderGoodsListSgmList: [{
+                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
+                title: "商品名称",
+                key: "5个",
+                buynum: 12,
+                price: 60
+            }, {
+                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
+                title: "商品名称",
+                key: "5个",
+                buynum: 12,
+                price: 60
+            }],
+            hocFormListSgmFormList: [{
+                label: "拼团人数",
+                text: "3人"
+            }, {
+                label: "商品金额",
+                text: "￥120"
+            }, {
+                label: "邮费",
+                text: "￥0"
+            }]
+        };
+    },
     methods: {
         fnGoPay() {
             api.toast({

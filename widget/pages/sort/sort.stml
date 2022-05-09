@@ -1,12 +1,11 @@
 <template>
-    <view class="page">
-        <safe-area></safe-area>
-        <hoc-nav-bar-sgm title="分类" />
+    <safe-area class="page">
+        <hoc-nav-bar-sgm title="分类" isShowBack={false} />
         <view class="sort-container">
-            <hoc-slide-bar-sgm />
-            <hoc-classify-list-sgm />
+            <hoc-slide-bar-sgm :sideBarList="hocSlideBarSgmSideBarList" />
+            <hoc-classify-list-sgm :classDetailList="hocClassifyListSgmClassDetailList" />
         </view>
-    </view>
+    </safe-area>
 </template>
 <script>
 import '../../components/hoc-slide-bar-sgm.stml';
@@ -17,7 +16,43 @@ export default {
     apiready() { //like created
     },
     data() {
-        return {};
+        return {
+            hocSlideBarSgmSideBarList: [{
+                value: "food",
+                text: "特色美食"
+            }, {
+                value: "culture",
+                text: "乡土文创"
+            }, {
+                value: "class",
+                text: "农耕课堂"
+            }, {
+                value: "heart",
+                text: "初心笃志"
+            }],
+            hocClassifyListSgmClassDetailList: [{
+                name: "特色美食",
+                icon: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/f431072b8b58f5eb2adae2d6167c4a14.JPG"
+            }, {
+                name: "乡土文创",
+                icon: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/1825d8792308e9ba9cb9ad9c6e5d1380.JPG"
+            }, {
+                name: "农耕课堂",
+                icon: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/20af6bccfa9fff071477b1708743f9e1.JPG"
+            }, {
+                name: "农家特色",
+                icon: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/5b6a61c32d64e918f51422549b0a3900.JPG"
+            }, {
+                name: "初心笃志",
+                icon: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/a77b21b571526bfba17131c44b957c55.JPG"
+            }, {
+                name: "养生滋味",
+                icon: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/ac17fbba3b3dd76a142e4e805501d22e.JPG"
+            }, {
+                name: "复古怀旧",
+                icon: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/77f093776045f6187ccb188cee428985.JPG"
+            }]
+        };
     },
     methods: {}
 };

@@ -4,105 +4,94 @@
 		<view class="edit-address-topform">
 			<view class="edit-address-topform-item">
 				<text class="edit-address-topform-text">收货人</text>
-				<input class="edit-address-topform-input" placeholder="请填写收货人" v-model="formInfo.name"
+				<input class="edit-address-topform-input" placeholder="请填写收货人" v-model="this.data.name"
 					:maxlength="20"></input>
 			</view>
 			<view class="edit-address-topform-item">
 				<text class="edit-address-topform-text">联系方式</text>
-				<input class="edit-address-topform-input" placeholder="请填写联系方式" v-model="formInfo.phone"
+				<input class="edit-address-topform-input" placeholder="请填写联系方式" v-model="this.data.phone"
 					keyboard-type="number" :maxlength="11"></input>
 			</view>
 			<view class="edit-address-topform-item">
 				<text class="edit-address-topform-text">收货地址</text>
 				<view class="qu_box">
-					<region-picker :region="formInfo.qustr || ''" onchange={this.fnChooseStr.bind(this)}></region-picker>
-					<img class="a_gor" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/c89316e175437ebce8f361ef3f9c3973.png"/>
+					<input class="edit-address-topform-input" placeholder="请填写收货地址" v-model="this.data.qustr"></input>
 				</view>
 			</view>
 			<view class="edit-address-topform-item">
 				<text class="edit-address-topform-text">设为默认地址</text>
-				<switch :checked="formInfo.def" color="#339DFF" onchange={this.onswitchchange.bind(this)}/>
+				<switch :checked="this.data.isDefault == true" color="#7FA000" onchange={this.onswitchchange.bind(this)}/>
 			</view>
 		</view>
 		<!-- 备注 -->
 		<text class="edit-address-back">详细地址</text>
 		<view class="edit-address-back-box">
 			<textarea class="edit-address-back-textarea" data-id="address" placeholder="街道、门牌号等"
-				v-model="formInfo.address"></textarea>
+				v-model="this.data.address"></textarea>
 		</view>
 
 		<!-- btn -->
 		<view class="flex1"></view>
 		<view class="edit-address-footer">
-			<text v-if="formInfo.id" class="edit-address-btn btn_orange" >保存</text>
-			<text v-if="formInfo.id" class="edit-address-btn btn_red" >删除</text>
-			<text v-if="!formInfo.id" class="edit-address-btn btn_red" >提交</text>
+			<text v-if="id" class="edit-address-btn btn_orange" onclick={this.fnSubmit.bind(this)}>保存</text>
+			<text v-if="id" class="edit-address-btn btn_red" onclick={this.fnDelete.bind(this)}>删除</text>
+			<text v-if="!id" class="edit-address-btn btn_red" onclick={this.fnSubmit.bind(this)}>提交</text>
 		</view>
 	</view>
 </template>
 <script>
-import './region-picker.stml'
 export default {
 	name: 'hoc-edit-address-sgm',
 	data() {
 		return {
-			formInfo: this.props.formInfo || {
-				id: null,
-				name: '',
-				phone: '',
-				qustr: '',
-				quid: '',
-				address: '',
-				def: false
-			}
+			id: this.props.id || null,
+			name: this.props.name || '',
+			phone: this.props.phone || '',
+			qustr: this.props.qustr || '',
+			address: this.props.address || '',
+			isDefault: this.props.isDefault || false
 		}
 	},
 	methods: {
-		fnChooseStr(e) {
-			let code = e.detail.code ? e.detail.code.join() : '';
-			let val = e.detail.value ? e.detail.value.join() : '';
-			this.data.formInfo.quid = code;
-			this.data.formInfo.qustr = val;
-		},
 		onswitchchange(e) {
-			this.data.formInfo.def = e.detail.value;
+			this.data.isDefault = e.detail.value;
 		},
 		isMobile(str) {
 			var mobileReg = /^1(3[0-9]|4[0-9]|5[0-9]|6[0-9]|7[0-9]|8[0-9]|9[0-9])\d{8}$/;
 			return mobileReg.test(str);
 		},
 		fnSubmit() {
-			const {name, phone, quid, qustr, address, def, id} = this.data.formInfo;
+			const {name, phone, qustr, address, isDefault, id} = this.data;
 			if (!name) {
-				alert('请输入姓名~');
+				api.toast({msg: '请输入姓名~'});
 				return;
 			}
 			if (name.length > 14) {
-				alert('收货人姓名不得超过14个字符~');
+				api.toast({msg: '收货人姓名不得超过14个字符~'});
 				return;
 			}
 			if (name.length < 2) {
-				alert('收货人姓名不得少于2个字符~');
+				api.toast({msg: '收货人姓名不得少于2个字符~'});
 				return;
 			}
 			if (!phone) {
-				alert('请输入联系方式~');
+				api.toast({msg: '请输入联系方式~'});
 				return;
 			}
 			if (!this.isMobile(phone)) {
-				alert('请输入正确的手机号~');
+				api.toast({msg: '请输入正确的手机号~'});
 				return;
 			}
 			if (!qustr) {
-				alert('请选择收货地址~');
+				api.toast({msg: '请填写收货地址~'});
 				return;
 			}
 			if (!address) {
-				alert('请输入详细地址~');
+				api.toast({msg: '请输入详细地址~'});
 				return;
 			}
 			if (address.length > 50) {
-				alert('详细地址不得超过50个字符~');
+				api.toast({msg: '详细地址不得超过50个字符~'});
 				return;
 			}
 			this.fire('submitFunc', this.data.formInfo)

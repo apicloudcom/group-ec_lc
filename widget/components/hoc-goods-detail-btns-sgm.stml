@@ -3,10 +3,10 @@
 		<view class="goods-detail-btns">
 			<view class="goods-detail-btns-share" @click="onshare">
 				<image class="goods-detail-btns-share-icon" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/bb9b74c67da3eb1de2b75b90feb75680.png"></image>
-				<text class="goods-detail-btns-share-text">分享</text>
+				<text class="goods-detail-btns-share-text">{{shareBtnText}}</text>
 			</view>
-			<text class="goods-detail-btns-buy btn_orange" @click="aloneBuyClick">单独购买 ({{this.props.price}}元)</text>
-			<text class="goods-detail-btns-buy btn_red" @click="groupBuyClick">发起拼团 ({{this.props.pinPrice}}元)</text>
+			<text class="goods-detail-btns-buy btn_orange" @click="aloneBuyClick">{{aloneBtnText}} ({{price}}元)</text>
+			<text class="goods-detail-btns-buy btn_red" @click="groupBuyClick">{{pinBtnText}} ({{pinPrice}}元)</text>
 		</view>
 		<safe-area></safe-area>
 	</view>
@@ -14,22 +14,23 @@
 <script>
 	export default {
 		name: 'hoc-goods-detail-btns-sgm',
+		data() {
+			return {
+				price: this.props.price || 50,
+				pinPrice: this.props.pinPrice || 25,
+				shareBtnText: this.props.shareBtnText || '分享',
+				aloneBtnText: this.props.aloneBtnText || '单独购买',
+				pinBtnText: this.props.pinBtnText || '发起拼团'
+			}
+		},
 		methods: {
 			onshare(){
 				this.fire('shareClick');
 			},
 			aloneBuyClick(){
-				api.openWin({
-					name: 'pay',
-					url:'widget://pages/pay/pay'
-				})
 				this.fire('aloneBuyClick');
 			},
 			groupBuyClick(){
-				api.openWin({
-					name: 'pay',
-					url:'widget://pages/pay/pay'
-				})
 				this.fire('groupBuyClick');
 			}
 		}
