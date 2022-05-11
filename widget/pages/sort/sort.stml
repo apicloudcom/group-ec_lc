@@ -1,6 +1,6 @@
 <template>
     <safe-area class="page">
-        <hoc-nav-bar-sgm title="分类" isShowBack={false} />
+        <hoc-nav-bar-sgm title="分类" :isShowBack="isShowBack" />
         <view class="sort-container">
             <hoc-slide-bar-sgm :sideBarList="hocSlideBarSgmSideBarList" />
             <hoc-classify-list-sgm :classDetailList="hocClassifyListSgmClassDetailList" />
@@ -17,6 +17,7 @@ export default {
     },
     data() {
         return {
+            isShowBack: api.pageParam.isSkip === true ? true : false,
             hocSlideBarSgmSideBarList: [{
                 value: "food",
                 text: "特色美食"

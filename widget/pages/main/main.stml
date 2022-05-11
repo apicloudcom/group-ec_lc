@@ -225,7 +225,8 @@ export default {
         fnOpenClassPage(data) {
             api.openWin({
                 name: 'sortDetail',
-                url:'../sort/sort.stml'
+                url:'../sort/sort.stml',
+                pageParam: {isSkip: true}
             })
         },
         fnOpenMoreZonePage(data) {
