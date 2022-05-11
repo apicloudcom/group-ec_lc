@@ -1,6 +1,6 @@
 <!--首页-分类-->
 <template>
-	<view class="index-classify" :show-scrollbar="false" scroll-x>
+	<view class="index-classify">
 		<view v-for="(item,index) in classifylist" class="index-classify-item" @click="classifyClick(item)">
 			<image class="index-classify-item-icon" :src="item.icon"></image>
 			<text class="index-classify-item-text">{{item.name}}</text>
@@ -49,18 +49,22 @@ export default {
 <style>
 .index-classify {
 	width: 100%;
+	display: flex;
 	flex-direction: row;
 	align-items: center;
 	justify-content: space-around;
 	padding: 10px 0;
 	background-color: #fff;
+	overflow: auto;
 }
-
 .index-classify-item {
-	width: 25%;
+	width: 70px;
 	height: 100%;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
+	flex-shrink: 0;
 }
 
 .index-classify-item-icon {
