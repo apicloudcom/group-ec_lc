@@ -1,6 +1,6 @@
 <template>
     <safe-area class="page">
-        <hoc-nav-bar-sgm title="分类"/>
+        <hoc-nav-bar-sgm title="分类" :isShowBack />
         <view class="sort-container">
             <hoc-slide-bar-sgm :sideBarList="hocSlideBarSgmSideBarList" />
             <hoc-classify-list-sgm :classDetailList="hocClassifyListSgmClassDetailList" />
@@ -12,7 +12,7 @@ import '../../components/hoc-slide-bar-sgm.stml';
 import '../../components/hoc-classify-list-sgm.stml';
 import '../../components/hoc-nav-bar-sgm.stml';
 export default {
-    name: 'sort',
+    name: 'sort_list',
     apiready() { //like created
     },
     data() {
