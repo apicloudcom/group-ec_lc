@@ -1,7 +1,7 @@
 <template>
 	<view class="order-goods-page">
 		<view class="order-goods-item" v-for="item in list" @click="onclick(item)">
-			<image class="order-goods-img" :src="item.image" mode="aspectFit"></image>
+			<image class="order-goods-img" :src="item.image"></image>
 			<view class="order-goods-right">
 				<text class="order-goods-title">{{item.title}}</text>
 				<view class="order-goods-guige-box">
