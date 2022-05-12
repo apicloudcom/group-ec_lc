@@ -2,13 +2,13 @@
     <view class="user-info">
 		<view class="user-info-item user-info-item-one">
 			<text class="user-info-item-label">头像</text>
-			<image class="user-info-item-icon" :src="this.data.userInfo.avatar" mode="aspectFill"></image>
+			<image class="user-info-item-icon" :src="avatar" mode="aspectFill"></image>
 		</view>
 		<view class="user-info-item user-info-item-two">
 			<text class="user-info-item-label">昵称</text>
-			<text class="user-info-item-text">{{this.data.userInfo.nickname}}</text>
+			<text class="user-info-item-text">{{nickName}}</text>
 		</view>
-		<text class="user-info-btn" onclick="logout">退出登录</text>
+		<text class="user-info-btn" onclick="logout">{{btnText}}</text>
     </view>
 </template>
 <script>
@@ -16,10 +16,9 @@ export default {
 	name: 'hoc-personal-data-sgm',
 	data() {
 		return {
-			userInfo: this.props.uData || {
-				avatar: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
-				nickname: '樱桃小丸子'
-			}
+			avatar: this.props.avatar !== undefined ? this.props.avatar :  "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
+            nickName: this.props.nickName !== undefined ? this.props.nickName : '樱桃小丸子',
+            btnText: this.props.btnText !== undefined ? this.props.btnText : '退出登录'
 		}
 	},
 	methods: {

@@ -2,7 +2,7 @@
     <safe-area class="hoc-pay-pindan-page-sgm">
         <hoc-nav-bar-sgm title="发起拼团" isShowBack />
         <scroll-view scroll-y :show-scrollbar="false" style="flex: 1;">
-            <hoc-pay-address-sgm consignee="樱桃小丸子" />
+            <hoc-pay-address-sgm consignee="李丽" />
             <hoc-order-goods-list-sgm :list="hocOrderGoodsListSgmList" />
             <hoc-form-list-sgm :formList="hocFormListSgmFormList" />
             <hoc-pin-rules-sgm content="<p style='color: #999; font-size: 12px;'>1、24小时内没有拼团成功，自动取消订单</p><p style='color: #999; font-size: 12px;'>2、拼团成功平台会在48小时发货</p><p style='color: #999; font-size: 12px;'>3、拼团成功的不能取消订单！</p>" />
@@ -22,18 +22,14 @@ export default {
     data() {
         return {
             hocOrderGoodsListSgmList: [{
-                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
-                title: "商品名称",
-                key: "5个",
-                buynum: 12,
-                price: 60
-            }, {
-                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
-                title: "商品名称",
-                key: "5个",
-                buynum: 12,
-                price: 60
-            }],
+				title: "键盘鼠标套装游戏电竞有线耳机",
+				image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/32be522c4b709dc2b0363a831924a41b.png",
+				price: 369,
+				delprice: 400,
+				key: "一个",
+				buynum: 1,
+				act: "tuan"
+			}],
             hocFormListSgmFormList: [{
                 label: "拼团人数",
                 text: "3人"

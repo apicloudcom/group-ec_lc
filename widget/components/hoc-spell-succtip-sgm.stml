@@ -22,10 +22,10 @@ export default {
 	},
 	data() {
 		return {
-			productId: this.props.productId || '111',
-            paytime: this.props.paytime || '2022-01-02',
-            avatar: this.props.avatar || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
-            nickname: this.props.nickname || '樱桃小丸子'
+			productId: this.props.productId !== undefined ? this.props.productId : '111',
+            paytime: this.props.paytime !== undefined ? this.props.paytime : '2022-01-02',
+            avatar: this.props.avatar !== undefined ? this.props.avatar : 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
+            nickname: this.props.nickname !== undefined ? this.props.nickname : '樱桃小丸子'
 		}
 	},
 	methods: {

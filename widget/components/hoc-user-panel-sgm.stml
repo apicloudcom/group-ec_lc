@@ -17,9 +17,9 @@ export default {
 	},
 	data() {
 		return {
-			id: this.props.id || '111',
-            avatar: this.props.avatar || "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
-            nickname: this.props.nickname || "樱桃小丸子"
+			id: this.props.id !== undefined ? this.props.id : '111',
+            avatar: this.props.avatar !== undefined ? this.props.avatar : "http://aea8bc2ccdd582de43c1.qiniucdn.apicloud-system.com/apicloud/46e4b8d7a4a8d1febeec082516a8e8f5.png",
+            nickname: this.props.nickname !== undefined ? this.props.nickname : "测试账号"
 		}
 	},
 	methods: {

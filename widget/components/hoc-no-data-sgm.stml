@@ -1,7 +1,7 @@
 <template>
     <view class="no-data">
         <image class="no-data-img" :src="this.props.noDataImg || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/8ef62c4c43c7b693aef8eacb7fb9a84d.png'"></image>
-        <text class="no-data-desc">{this.props.noDataDesc || '暂无数据'}</text>
+        <text class="no-data-desc">{this.props.noDataDesc !== undefined ? this.props.noDataDesc : '暂无数据'}</text>
         <text class="no-data-refresh-btn" v-if={this.props.showRefresh} onclick="onclick">刷新</text>
     </view>
 </template>

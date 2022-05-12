@@ -14,10 +14,10 @@ export default {
 	},
 	data() {
 		return {
-			image: this.props.image || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
-			title: this.props.title || '拼团商城',
-			version: this.props.version || '1.0.98',
-			url: this.props.url || 'www.apicloud.com'
+			image: this.props.image !== undefined ? this.props.image : 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
+			title: this.props.title !== undefined ? this.props.title : '拼团商城',
+			version: this.props.version !== undefined ? this.props.version : '1.0.98',
+			url: this.props.url !== undefined ? this.props.url : 'www.apicloud.com'
 		}
 	},
 	methods: {

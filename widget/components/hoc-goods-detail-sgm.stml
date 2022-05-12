@@ -19,8 +19,8 @@ export default {
 	},
 	data() {
 		return {
-			title: this.props.title || '商品详情',
-			info: this.props.info || '<p>天然淡晒，干度适中，保持原有风味，肉质鲜美，满口清香，为烹饪好食材</p>'
+			title: this.props.title !== undefined ? this.props.title : '商品详情',
+			info: this.props.info !== undefined ? this.props.info : '<p><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i2/3321312213/O1CN01CdKRri1SDb6qYgLaj_!!3321312213.jpg"/></p><p><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i1/3321312213/O1CN014vtNVx1SDb6pLwNxx_!!3321312213.jpg"/></p><p><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i3/3321312213/O1CN01dVsOBu1SDb6sujVtp_!!3321312213.jpg"/><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i2/3321312213/O1CN01DYOz611SDb6tj5GXq_!!3321312213.jpg" /></p>'
 		}
 	},
 	methods: {

@@ -19,7 +19,7 @@
 		data(){
 			return {
 				bottom: -200,
-				shareList: [{
+				shareList: this.props.shareList || [{
 					name: '微信',
 					icon: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/c1946ae84a37fa867b0399b93917f627.png'
 				}]

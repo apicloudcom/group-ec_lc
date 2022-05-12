@@ -1,9 +1,9 @@
 <template>
 	<view class="order-detail-statetip">
 		<view class="order-detail-statetip-top">
-			<text class="order-detail-statetip-text">{this.props.statusStr || '待发货'}</text>
+			<text class="order-detail-statetip-text">{this.props.statusStr !== undefined ? this.props.statusStr : '待发货'}</text>
 		</view>
-		<text class="order-detail-statetip-tips">{this.props.desc || '请耐心等待，将尽快为您安排发货'}</text>
+		<text class="order-detail-statetip-tips">{this.props.desc !== undefined ? this.props.desc : '请耐心等待，将尽快为您安排发货'}</text>
 	</view>
 </template>
 <script>

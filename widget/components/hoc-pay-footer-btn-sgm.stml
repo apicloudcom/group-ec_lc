@@ -16,8 +16,8 @@ export default {
 	},
 	data() {
 		return {
-			buyNum: this.props.buyNum || 10, 
-            payPrice: this.props.payPrice || 132
+			buyNum: this.props.buyNum !== undefined ? this.props.buyNum : 10, 
+            payPrice: this.props.payPrice !== undefined ? this.props.payPrice : 132
 		}
 	},
 	methods: {

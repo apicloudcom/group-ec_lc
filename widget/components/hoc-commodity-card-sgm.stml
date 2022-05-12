@@ -1,33 +1,27 @@
 <!--每一个商品展示-->
 <template>
-	<view class="commodity-card" data-id={this.props.item.id} onclick="onclick">
-		<!-- <view class="commodity-card-banner-box"}> -->
-			<swiper style={'height:'+listSwiperHeight+'px;'} indicator-dots indicator-color="rgba(255,255,255,0.4)" circular>
-				<swiper-item v-for="(item_, index_) in this.props.item.images_show">
-					<image class="commodity-card-banner-img" src={item_} mode="aspectFill"></image>
-				</swiper-item>
-			</swiper>
-		<!-- </view>	 -->
+	<view class="commodity-card" onclick="onclick">
+		<img :src="image" alt="img" class="commodity-card-img"/>
 		<view class="commodity-card-middle">
-			<text class="commodity-card-middle-title">{this.props.item.title}</text>
-            <view class="commodity-card-middle-num" v-if="this.props.showHot">
+			<text class="commodity-card-middle-title">{title}</text>
+            <view class="commodity-card-middle-num" v-if="showHot">
                 <image
                     class="commodity-card-middle-num-img"
                     src={this.props.hotIcon ? this.props.hotIcon : 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/784e573cab94112b0e91f5c063fee14f.png'}></image>
-                <text class="commodity-card-middle-num-price">{this.fixBuynum(this.props.item.buy_num)}</text>
+                <text class="commodity-card-middle-num-price">{this.fixBuynum(buy_num)}</text>
             </view>
 		</view>
         <view class="commodity-card-bottom">
             <text class="commodity-card-bottom-label">拼团价</text>
             <view class="flex1"></view>
             <text class="commodity-card-bottom-label">￥</text>
-            <text class="commodity-card-bottom-price">{this.props.item.price}</text>
+            <text class="commodity-card-bottom-price">{price}</text>
         </view>
         <view class="commodity-card-tips">
             <image
                 class="commodity-card-tips-img"
                 src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/87ed37507c476817e86d9f6c51b9fed8.png"></image>
-            <text class="commodity-card-tips-text">{this.props.item.pnumstr+'人团'}</text>
+            <text class="commodity-card-tips-text">{pnumstr}人团</text>
         </view>
 	</view>
 </template>
@@ -36,12 +30,19 @@
         name: 'hoc-commodity-card-sgm',
         data() {
             return {
-                listSwiperHeight: Math.floor((api.winWidth-30)*0.41)
+                listSwiperHeight: Math.floor((api.winWidth-30)*0.41),
+                showHot: this.props.showHot || false,
+                hotIcon: this.props.hotIcon !== undefined ? this.props.hotIcon : "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/784e573cab94112b0e91f5c063fee14f.png",
+                title: this.props.title !== undefined ? this.props.title : "农家自晒野生小鱼干",
+                price: this.props.price !== undefined ? this.props.price : 15,
+                buy_num: this.props.buy_num !== undefined ? this.props.buy_num : 236,
+                image:  this.props.image !== undefined ? this.props.image : "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/57eab907dfcf021a3a4e1f48f5ff497f.JPG",
+                pnumstr: this.props.pnumstr !== undefined ? this.props.pnumstr : "双"
             };
         },
 		methods: {
             onclick(){
-                this.fire('itemClick', this.props.item);
+                this.fire('itemClick');
             },
             fixBuynum(num){
                 if (!num) {return 0;}
@@ -137,5 +138,6 @@
 }
 .commodity-card-tips-text{
     font-size: 12px;
+    z-index: 999;
 }
 </style>

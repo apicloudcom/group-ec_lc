@@ -15,7 +15,7 @@ export default {
 	},
 	data() {
 		return{
-			curTab: this.props.curTab || 'index',
+			curTab: this.props.curTab !== undefined ? this.props.curTab : 'index',
 			tabBarList: this.props.tabBarList || [{
 				icon: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/795d0acd5ae4309205c4b5ab275f9eed.png',
 				selectedIcon: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/aee091cbfd832e4ba13ef3830aac9d82.png',

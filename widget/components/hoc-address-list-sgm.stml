@@ -28,21 +28,19 @@ export default {
 	},
 	data() {
 		return {
-			dataList: this.props.addressList || [
-				{
-					def: 1,
-					id: '11',
-					name: '樱桃小丸子',
-					phone: '15534212345',
-					address: '北京市昌平区'
-				}, {
-					def: 2,
-					id: '11',
-					name: '李丽',
-					phone: '16653452345',
-					address: '北京市海淀区用友产业园'
-				}
-			]
+			dataList: this.props.addressList || [{
+                def: 2,
+                id: "1",
+                name: "杨飞",
+                phone: "15534212345",
+                address: "北京北京市海淀区北太平庄街道北三环中路44号"
+            }, {
+                def: 2,
+                id: "1",
+                name: "杨飞",
+                phone: "15534212345",
+                address: "北京北京市海淀区北太平庄街道北三环中路44号"
+            }]
 		}
 	},
 	methods: {

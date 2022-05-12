@@ -5,12 +5,17 @@
 			<img src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/6958c7448f8d7106d3ee273fa7430063.png" alt="back" class="nav-bar-back-icon"/>
 			<text class="nav-bar-back-text" :style="{color: this.props.textColor || '#000'}">返回</text>
 		</view>
-		<text class="nav-bar-title" :style="{color: this.props.textColor || '#000'}">{this.props.title || '拼团商城'}</text>
+		<text class="nav-bar-title" :style="{color: this.props.textColor || '#000'}">{title}</text>
     </view>
 </template>
 <script>
 export default {
 	name: 'hoc-nav-bar-sgm',
+	data() {
+		return {
+			title: this.props.title !== undefined ? this.props.title : '拼团商城'
+		}
+	},
 	methods: {
 		back() {
 			api.closeWin()
@@ -22,13 +27,12 @@ export default {
 <style>
 .nav-bar {
 	width: 100%;
-	height: 48px;
 	display: flex;
     flex-direction: row;
     align-items: center;
-	flex-shrink: 0;
     justify-content: center;
-	/* padding: 10px 16px; */
+	flex-shrink: 0;
+	height: 48px;
 	border-bottom: 0.5px solid #e8e8e8;
 }
 .nav-bar-back {
@@ -39,11 +43,11 @@ export default {
 	left: 16px;
 }
 .nav-bar-back-icon {
-	width: 18px;
-	height: 18px;
+	width: 20px;
+	height: 20px;
 }
 .nav-bar-back-text {
-	font-size: 16px;
+	font-size: 17px;
 }
 .nav-bar-title {
 	font-size: 17px;

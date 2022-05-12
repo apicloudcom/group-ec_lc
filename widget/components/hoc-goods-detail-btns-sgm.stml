@@ -16,11 +16,11 @@
 		name: 'hoc-goods-detail-btns-sgm',
 		data() {
 			return {
-				price: this.props.price || 50,
-				pinPrice: this.props.pinPrice || 25,
-				shareBtnText: this.props.shareBtnText || '分享',
-				aloneBtnText: this.props.aloneBtnText || '单独购买',
-				pinBtnText: this.props.pinBtnText || '发起拼团'
+				price: this.props.price !== undefined ? this.props.price : 50,
+				pinPrice: this.props.pinPrice !== undefined ? this.props.pinPrice : 25,
+				shareBtnText: this.props.shareBtnText !== undefined ? this.props.shareBtnText : '分享',
+				aloneBtnText: this.props.aloneBtnText !== undefined ? this.props.aloneBtnText : '单独购买',
+				pinBtnText: this.props.pinBtnText !== undefined ? this.props.pinBtnText : '发起拼团'
 			}
 		},
 		methods: {

@@ -7,17 +7,17 @@
             <hoc-commodity-swiper-sgm :swiperList="swiperList" />
             <!--商品基本信息 -->
             <hoc-goods-baseinfo-sgm
-                isHot={false}
-                price={55}
-                delprice={168}
-                buy_num={1220}
-                title="农家自晒野生小鱼干"
+                isHot={true}
+                price={369}
+                delprice={400}
+                buy_num={13541}
+                title="键盘鼠标套装游戏电竞有线耳机"
                 yunfei_type="自费"
-                yunfei_money="15" />
+                yunfei_money="20" />
             <!-- 规格 -->
             <hoc-check-list-et :list="checklist" />
             <!-- 商品详情 -->
-            <hoc-goods-detail-sgm title="商品详情" info="<p>天然淡晒，干度适中，保持原有风味，肉质鲜美，满口清香，为烹饪好食材</p>" />
+            <hoc-goods-detail-sgm title="商品详情" info='<p><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i2/3321312213/O1CN01CdKRri1SDb6qYgLaj_!!3321312213.jpg"/></p><p><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i1/3321312213/O1CN014vtNVx1SDb6pLwNxx_!!3321312213.jpg"/></p><p><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i3/3321312213/O1CN01dVsOBu1SDb6sujVtp_!!3321312213.jpg"/><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i2/3321312213/O1CN01DYOz611SDb6tj5GXq_!!3321312213.jpg" /></p>' />
         </scroll-view>
         <!-- 操作按钮 -->
         <hoc-goods-detail-btns-sgm @shareClick="shareClick" @aloneBuyClick="aloneBuyClick" @groupBuyClick="groupBuyClick" price={50} pinPrice={22} shareBtnText="分享" aloneBtnText="单独购买" pinBtnText="发起拼团" />
@@ -34,11 +34,15 @@ export default {
     name: 'commodity_detail',
     data() {
         return {
-            swiperList: ["http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/57eab907dfcf021a3a4e1f48f5ff497f.JPG", "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/26fbf79f86313b1ec25f0476fb215c87.JPG", "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/6cce14fca96571954d86cba43d71425b.JPG"],
+            swiperList: [
+                'http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/32be522c4b709dc2b0363a831924a41b.png',
+                'http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/4f766931500ca4f167bb6abd75958b07.png',
+                'http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/8fc6a35189b79d2c8c5d2a15dc940903.png'
+            ],
             checklist: [{
                 id: "spell",
                 text: "规格",
-                extraText: "500g"
+                extraText: "橙色"
             }]
         };
     },

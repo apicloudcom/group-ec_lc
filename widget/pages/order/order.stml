@@ -1,8 +1,8 @@
 <template>
     <safe-area class="page">
         <hoc-nav-bar-sgm isShowBack title="我的订单" />
-        <hoc-tab-switch-sgm :tabList="hocTabSwitchSgmTabList" />
-        <hoc-order-list-sgm :ordeBaseInfo="hocOrderListSgmOrdeBaseInfo" :buyProductList="hocOrderListSgmBuyProductList" />
+        <hoc-tab-switch-sgm :tabList="hocTabSwitchSgmTabList"/>
+        <hoc-order-list-sgm :ordeBaseInfo="hocOrderListSgmOrdeBaseInfo" :buyProductList="hocOrderListSgmBuyProductList" @goodsItemClick="goodsItemClick"/>
     </safe-area>
 </template>
 <script>
@@ -36,33 +36,40 @@ export default {
             }],
             hocOrderListSgmOrdeBaseInfo: {
                 orderid: "202203290948386376",
-                status: 4,
-                pay_price: "26",
-                buy_num: 8,
-                endmiao: 5000000,
+                status: 5,
+                pay_price: 4198.88,
+                buy_num: 2,
+                endmiao: 2000000,
                 status_str: "已关闭",
-                cnum: 6
+                cnum: 3
             },
             hocOrderListSgmBuyProductList: [{
-                title: "手工竹编制品竹筛竹篮",
-                image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/e7de6625952baba9db04f84794649d16.JPG",
-                price: 26,
-                delprice: 35,
-                key: "一个",
+                title: "powera xbox手柄游戏手柄有线手柄pc",
+                image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/bd270b2f4b2c0f4d675b8b1a748524eb.png",
+                price: 998.88,
+                delprice: 1288.88,
+                key: "红色",
                 buynum: 1,
                 act: "tuan"
             }, {
-                title: "木质碾 农家石磨模型",
-                image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/22b6eea61c1ad32b318955b2006392c4.jpg",
-                price: 16.5,
-                delprice: 25,
-                key: "一个",
-                buynum: 7,
+                title: "iPhone 8 Plus全新苹果8正品8p国行三网苹果8plus手机",
+                image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/c2d0ff728631b9e8cdf14e6c5fcc38f0.png",
+                price: 2500,
+                delprice: 3200,
+                key: "64G",
+                buynum: 1,
                 act: "buy"
             }]
         };
     },
-    methods: {}
+    methods: {
+        goodsItemClick() {
+            api.openWin({
+                name: 'orderDetail',
+                url:'../order_detail/order_detail.stml'
+            })
+        }
+    }
 };
 </script>
 <style>

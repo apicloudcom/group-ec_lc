@@ -1,6 +1,6 @@
 <template>
     <safe-area class="page">
-        <hoc-user-panel-sgm id="111" nickname="樱桃小丸子" avatar="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png" />
+        <hoc-user-panel-sgm id="111" nickname="测试账号" avatar="http://aea8bc2ccdd582de43c1.qiniucdn.apicloud-system.com/apicloud/46e4b8d7a4a8d1febeec082516a8e8f5.png" />
         <hoc-orderbtn-group-sgm title="我的订单" :btnList="hocOrderbtnGroupSgmBtnList" @gotoOrderList="gotoOrderList" @btnClick="btnClick"/>
         <hoc-user-menu-od :list="hocUserMenuOdList" />
     </safe-area>
@@ -44,7 +44,7 @@ export default {
         btnClick() {
             api.openWin({
                 name: 'myOrder',
-                url:'../order_detail/order_detail.stml'
+                url:'../order/order.stml'
             })
         },
         gotoOrderList() {

@@ -2,8 +2,9 @@
     <safe-area class="page">
         <hoc-nav-bar-sgm isShowBack title="订单详情" />
         <hoc-order-detail-status-sgm statusStr="待发货" desc="请耐心等待，将尽快为您安排发货" />
-        <hoc-order-address-sgm consignee="樱桃小丸子" phone="1234556789" area="北京" detailAddress="海淀区用友" />
+        <hoc-order-address-sgm consignee="温泉" phone="1234556789" area="北京" detailAddress="北京市海淀区用友产业园" />
         <hoc-order-goods-list-sgm :list="hocOrderGoodsListSgmList" />
+        <hoc-form-list-sgm :formList="formList"/>
     </safe-area>
 </template>
 <script>
@@ -11,6 +12,7 @@ import '../../components/hoc-nav-bar-sgm.stml';
 import '../../components/hoc-order-detail-status-sgm.stml';
 import '../../components/hoc-order-address-sgm.stml';
 import '../../components/hoc-order-goods-list-sgm.stml';
+import '../../components/hoc-form-list-sgm.stml'
 export default {
     name: 'order_detail',
     apiready() { //like created
@@ -18,18 +20,39 @@ export default {
     data() {
         return {
             hocOrderGoodsListSgmList: [{
-                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
-                title: "商品名称",
-                key: "5个",
-                buynum: 121,
-                price: 600
-            }, {
-                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
-                title: "商品名称",
-                key: "5个",
-                buynum: 12,
-                price: 60
-            }]
+                title: "powera xbox手柄游戏手柄有线手柄pc",
+                image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/bd270b2f4b2c0f4d675b8b1a748524eb.png",
+                price: 998.88,
+                delprice: 1288.88,
+                key: "红色",
+                buynum: 1,
+                act: "tuan"
+            }],
+            formList: [{
+				label: '配送方式',
+				text: '配送',
+				id: '11'
+			}, {
+				label: '订单编号',
+				text: '202203290948386376',
+				id: '22'
+			}, {
+				label: '交易编号',
+				text: '202203290948386376',
+				id: '33'
+			}, {
+				label: '创建时间',
+				text: '2022.05.12 14:21:39',
+				id: '44'
+			}, {
+				label: '运费',
+				text: '￥0',
+				id: '55'
+			}, {
+				label: '备注',
+				text: '请送货上门',
+				id: '66'
+			}]
         };
     },
     methods: {}

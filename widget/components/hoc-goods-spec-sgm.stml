@@ -2,11 +2,11 @@
 	<view class="popups_spec_bg">
 		<view class="detail-spec">
 			<view class="detail-spec-goods">
-				<image class="detail-spec-goods-img" src={info.image} mode="aspectFit"></image>
+				<image class="detail-spec-goods-img" src={image} mode="aspectFit"></image>
 				<view class="detail-spec-goods-info">
-					<text class="detail-spec-goods-info-price">￥{{info.action === 'cart' ? info.delprice : info.price}}</text>
-					<text class="detail-spec-goods-info-inventory">库存: {{info.ku_num}}</text>
-					<text class="detail-spec-goods-info-selected">已选: {{info.spec ? info.spec : '默认规格'}}</text>
+					<text class="detail-spec-goods-info-price">￥{{action === 'cart' ? delprice : price}}</text>
+					<text class="detail-spec-goods-info-inventory">库存: {{ku_num}}</text>
+					<text class="detail-spec-goods-info-selected">已选: {{spec ? spec : '默认规格'}}</text>
 				</view>
 				<view class="detail-spec-goods-close" onclick="fnClosePopups">
 					<image class="detail-spec-goods-close-icon" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/8d48f3e9633ae1268871880ff4e27e6a.png"></image>
@@ -17,25 +17,25 @@
 					<text class="detail-spec-item-label">规格</text>
 					<view class="detail-spec-item-box">
 						<text
-							v-for="(item,index) in info.guige_data"
-							:class="`detail-spec-item-item ${item.a == info.spec ? 'detail-spec-item-item-on' : ''}`"
+							v-for="(item,index) in guige_data"
+							:class="`detail-spec-item-item ${item.value == spec ? 'detail-spec-item-item-on' : ''}`"
 							onclick="fnChooseGuige"
-							data-spec={item.a}>{item.a}</text>
+							data-spec={item.value}>{item.value}</text>
 					</view>
 				</view>
 				<view class="detail-spec-item detail-spec-item-nums">
 					<text class="detail-spec-item-label">数量</text>
 					<view class="detail-spec-item-num">
-						<text :class="`detail-spec-item-num-btn ${info.buynum == 1 ? ' card_btn_disable' : ''}`" onclick="fnMinusBuynum">-</text>
-						<text class="detail-spec-item-num-text">{info.buynum}</text>
+						<text :class="`detail-spec-item-num-btn ${buynum == 1 ? ' card_btn_disable' : ''}`" onclick="fnMinusBuynum">-</text>
+						<text class="detail-spec-item-num-text">{buynum}</text>
 						<text class="detail-spec-item-num-btn" onclick="fnAddBuynum">+</text>
 					</view>
 				</view>
 			</scroll-view>
 			<view class="detail-spec-btns">
-				<text class="detail-spec-btn btn_orange" v-if={info.action=='spec'} onclick="fnBtn1">{'单独购买('+info.delprice+'元)'}</text>
-				<text class="detail-spec-btn btn_red" v-if={info.action=='spec'} onclick="fnBtn2">{'发起拼团('+info.price+'元)'}</text>
-				<text class="detail-spec-btn btn_red" v-if={info.action!='spec'} onclick="fnconfirm">确定</text>
+				<text class="detail-spec-btn btn_orange" v-if={action=='spec'} onclick="fnBtn1">{'单独购买('+delprice+'元)'}</text>
+				<text class="detail-spec-btn btn_red" v-if={action=='spec'} onclick="fnBtn2">{'发起拼团('+price+'元)'}</text>
+				<text class="detail-spec-btn btn_red" v-if={action!='spec'} onclick="fnconfirm">确定</text>
 			</view>
 			<safe-area></safe-area>
 		</view>
@@ -47,20 +47,18 @@
 		data(){
 			return {
 				bottom: -400,
-				info: this.props.info || {
-					image: 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
-					action: 'cart',
-					price: 120,
-					delprice: 60,
-					ku_num: 200,
-					spec: '500ml',
-					buynum: 5,
-					guige_data: [{
-						a: '500ml'
-					}, {
-						a: '600ml'
-					}]
-				}
+				image: this.props.image !== undefined ? this.props.image : 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png',
+				action: this.props.action !== undefined ? this.props.action : 'alone',
+				price: this.props.price !== undefined ? this.props.price : 120,
+				delprice: this.props.delprice !== undefined ? this.props.delprice : 60,
+				ku_num: this.props.ku_num !== undefined ? this.props.ku_num : 200,
+				spec: this.props.spec !== undefined ? this.props.spec : '500ml',
+				buynum: this.props.buynum !== undefined ? this.props.buynum : 5,
+				guige_data: this.props.guige_data || [{
+					value: '500ml'
+				}, {
+					value: '600ml'
+				}]
 			}
 		},
 		methods: {
@@ -238,11 +236,13 @@
 }
 .detail-spec-btn{
 	flex: 1;
-    height: 40px;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 40px;
+	height: 40px;
+	border-radius: 4px;
+	text-align: center;
+	line-height: 40px;
 	color: white;
+	font-size: 14px;
+	font-weight: 400;
 }
 .detail-spec-btn:active{
 	opacity: 0.7;

@@ -21,10 +21,10 @@ export default {
 	},
 	data() {
 		return {
-			consignee: this.props.consignee || '樱桃小丸子',
-            phone: this.props.phone || 1234556789,
-            area: this.props.area || '北京',
-            detailAddress: this.props.detailAddress || '海淀区用友'
+			consignee: this.props.consignee !== undefined ? this.props.consignee : '樱桃小丸子',
+            phone: this.props.phone !== undefined ? this.props.phone : 1234556789,
+            area: this.props.area !== undefined ? this.props.area : '北京',
+            detailAddress: this.props.detailAddress !== undefined ? this.props.detailAddress : '海淀区用友'
 		}
 	},
 	methods: {

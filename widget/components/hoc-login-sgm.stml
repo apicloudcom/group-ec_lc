@@ -14,10 +14,10 @@
 		},
 		data() {
 			return{
-				image: this.props.image || "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
-				desc: this.props.desc || "允许微信授权体验更多功能",
-				wxLoginBtnText: this.props.wxLoginBtnText || "微信授权登录",
-				simulateLoginBtnText: this.props.simulateLoginBtnText || "体验账号登录"
+				image: this.props.image !== undefined ? this.props.image : "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png",
+				desc: this.props.desc !== undefined ? this.props.desc : "允许微信授权体验更多功能",
+				wxLoginBtnText: this.props.wxLoginBtnText !== undefined ? this.props.wxLoginBtnText : "微信授权登录",
+				simulateLoginBtnText: this.props.simulateLoginBtnText !== undefined ? this.props.simulateLoginBtnText : "体验账号登录"
 			}
 		},
 		methods: {
