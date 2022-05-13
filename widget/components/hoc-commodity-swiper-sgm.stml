@@ -39,7 +39,7 @@ export default {
 }
 .commodity-swiper-swiper {
     width: 100%;
-    height: 320px;
+    height: 300px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -52,8 +52,8 @@ export default {
     height: 100%;
 }
 .commodity-swiper-img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
+    height: 294px;
 }
 .commodity-swiper-indicator-text{
     position: absolute;

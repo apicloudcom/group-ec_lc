@@ -29,41 +29,41 @@ export default {
     data() {
         return {
             swiperList: [{
-                "id": "0cdfb640-d2db-11ea-ab34-1b0cd727d0eb",
-                "title": "333",
-                "type": "class",
-                "orderby": 1,
-                "addtime": "2020-07-31T03:08:04.388Z",
-                "goodsid": "",
-                "topid": "top1",
-                "classid": "765fdbc0-dba2-11ea-a68f-873831895ca3",
-                "icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/0a26deb65cb6e537a5e619241d382ecc.png"
+                id: "0cdfb640-d2db-11ea-ab34-1b0cd727d0eb",
+                title: "333",
+                type: "class",
+                orderby: 1,
+                addtime: "2020-07-31T03:08:04.388Z",
+                goodsid: "",
+                topid: "top1",
+                classid: "765fdbc0-dba2-11ea-a68f-873831895ca3",
+                icon: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/0a26deb65cb6e537a5e619241d382ecc.png"
             }, {
-                "id": "df67a270-dba1-11ea-a68f-873831895ca3",
-                "title": "拼团4",
-                "type": "none",
-                "orderby": 1,
-                "addtime": "2020-08-11T07:11:27.255Z",
-                "goodsid": "",
-                "icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/746f329fbe1b3791e49072c8a05ec60e.png"
+                id: "df67a270-dba1-11ea-a68f-873831895ca3",
+                title: "拼团4",
+                type: "none",
+                orderby: 1,
+                addtime: "2020-08-11T07:11:27.255Z",
+                goodsid: "",
+                icon: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/746f329fbe1b3791e49072c8a05ec60e.png"
             }, {
-                "id": "f6c3c4f0-d2da-11ea-ab34-1b0cd727d0eb",
-                "title": "222",
-                "type": "top",
-                "orderby": 1,
-                "addtime": "2020-07-31T03:07:27.295Z",
-                "goodsid": "",
-                "topid": "top2",
-                "icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/521010247ff5852fe77dff5a943e6d97.png"
+                id: "f6c3c4f0-d2da-11ea-ab34-1b0cd727d0eb",
+                title: "222",
+                type: "top",
+                orderby: 1,
+                addtime: "2020-07-31T03:07:27.295Z",
+                goodsid: "",
+                topid: "top2",
+                icon: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/521010247ff5852fe77dff5a943e6d97.png"
             }, {
-                "id": "d8ebd8a0-d2da-11ea-ab34-1b0cd727d0eb",
-                "title": "111",
-                "type": "item",
-                "orderby": 1,
-                "addtime": "2020-07-31T03:06:37.226Z",
-                "goodsid": "a304eb50-d2df-11ea-ab34-1b0cd727d0eb",
-                "topid": "top1",
-                "icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/0a26deb65cb6e537a5e619241d382ecc.png"
+                id: "d8ebd8a0-d2da-11ea-ab34-1b0cd727d0eb",
+                title: "111",
+                type: "item",
+                orderby: 1,
+                addtime: "2020-07-31T03:06:37.226Z",
+                goodsid: "a304eb50-d2df-11ea-ab34-1b0cd727d0eb",
+                topid: "top1",
+                icon: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/0a26deb65cb6e537a5e619241d382ecc.png"
             }],
             classifyList: [{
                 "id": "bbe35280-dba7-11ea-8529-d94a7752ff71",
