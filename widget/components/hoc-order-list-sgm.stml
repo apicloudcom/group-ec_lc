@@ -68,19 +68,19 @@ export default {
                 cnum: 3
             },
 			buyProductList: this.props.buyProductList || [{
-                title: "测血压手环智能心率心脏血氧运动量体温定位",
-                image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png",
+                title: "苹果笔记本电脑超薄",
+                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/02b297b95bd2ae7aa0021ed8df11bede.png",
                 price: 30.9,
                 delprice: 50,
-                key: "红色",
+                key: "小盒/200g",
                 buynum: 1,
                 act: "tuan"
             }, {
-                title: "NFC版全面彩屏支付30种运动模式心率检",
-                image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/746f329fbe1b3791e49072c8a05ec60e.png",
+                title: "Apple 2019新款 Mac Pro 32G 256G八核 Intel Xeon W（3.5GHz…",
+                image: "http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/899e2ba871eb98a66e22004747fb12df.png",
                 price: 30.9,
                 delprice: 40,
-                key: "黑色",
+                key: "小盒/200g",
                 buynum: 1,
                 act: "buy"
             }]

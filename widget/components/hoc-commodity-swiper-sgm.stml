@@ -15,9 +15,7 @@ export default {
         return {
             current: 0,
             swiperList: this.props.swiperList || [
-                'http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png',
-                'http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png',
-                'http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png'
+                'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/83ae0824c4ec6a77faf585f94e88e498.png'
             ]
         }
     },
@@ -54,8 +52,8 @@ export default {
     height: 100%;
 }
 .commodity-swiper-img {
-    width: 100%;
-    height: 316px;
+    max-width: 100%;
+    max-height: 100%;
 }
 .commodity-swiper-indicator-text{
     position: absolute;

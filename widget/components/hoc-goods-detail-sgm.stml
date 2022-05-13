@@ -20,7 +20,7 @@ export default {
 	data() {
 		return {
 			title: this.props.title !== undefined ? this.props.title : '商品详情',
-			info: this.props.info !== undefined ? this.props.info : '<p><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i2/3321312213/O1CN01CdKRri1SDb6qYgLaj_!!3321312213.jpg"/></p><p><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i1/3321312213/O1CN014vtNVx1SDb6pLwNxx_!!3321312213.jpg"/></p><p><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i3/3321312213/O1CN01dVsOBu1SDb6sujVtp_!!3321312213.jpg"/><img style="width: 100%; height: auto;" src="https://img.alicdn.com/imgextra/i2/3321312213/O1CN01DYOz611SDb6tj5GXq_!!3321312213.jpg" /></p>'
+			info: this.props.info !== undefined ? this.props.info : '<img style="width: 100%; height: auto;" src="http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/89d57c29cf24aff7c0471233e7d0ab46.png" />'
 		}
 	},
 	methods: {
