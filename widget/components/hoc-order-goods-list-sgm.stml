@@ -21,14 +21,14 @@ export default {
 	data() {
 		return {
 			list: this.props.list || [{
-				title: "powera xbox手柄游戏手柄有线手柄pc",
-				image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/bd270b2f4b2c0f4d675b8b1a748524eb.png",
-				price: 998.88,
-				delprice: 1288.88,
-				key: "红色",
-				buynum: 1,
-				act: "tuan"
-			}]
+                title: "测血压手环智能心率心脏血氧运动量体温定位",
+                image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png",
+                price: 30.9,
+                delprice: 50,
+                key: "红色",
+                buynum: 1,
+                act: "tuan"
+            }]
 		}
 	},
 	methods: {
@@ -50,8 +50,8 @@ export default {
 	border-bottom: 1px solid #f8f8f8;
 }
 .order-goods-img {
-	width: 68px;
-	height: 68px;
+	width: 60px;
+	height: 60px;
 	margin-right: 12px;
 	border-radius: 4px;
 }

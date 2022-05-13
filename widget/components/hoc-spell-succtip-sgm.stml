@@ -6,7 +6,7 @@
 		:data-id="productId">
 		<image
 			class="pin-success-tip-logo"
-			:src="avatar || 'http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/4bb17d1e558c34b813965d8b35e05407.png'"
+			:src="avatar || 'http://aea8bc2ccdd582de43c1.qiniucdn.apicloud-system.com/apicloud/46e4b8d7a4a8d1febeec082516a8e8f5.png'"
 			policy="cache_only"
 			mode="aspectFill"/>
 		<text class="pin-success-tip-name">{this.nameHash(nickname)} 拼团成功</text>

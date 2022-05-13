@@ -22,14 +22,14 @@ export default {
     data() {
         return {
             hocOrderGoodsListSgmList: [{
-				title: "键盘鼠标套装游戏电竞有线耳机",
-				image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/32be522c4b709dc2b0363a831924a41b.png",
-				price: 369,
-				delprice: 400,
-				key: "一个",
-				buynum: 1,
-				act: "tuan"
-			}],
+                title: "测血压手环智能心率心脏血氧运动量体温定位",
+                image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png",
+                price: 30.9,
+                delprice: 50,
+                key: "红色",
+                buynum: 1,
+                act: "tuan"
+            }],
             hocFormListSgmFormList: [{
                 label: "拼团人数",
                 text: "3人"

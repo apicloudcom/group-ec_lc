@@ -22,7 +22,7 @@ const banerList = [
 		"orderby": 1,
 		"addtime": "2020-08-11T07:11:27.255Z",
 		"goodsid": "",
-		"icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/5466fa38eb260f619b294d6148e35b10.png"
+		"icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/746f329fbe1b3791e49072c8a05ec60e.png"
 	},
 	{
 		"id": "f6c3c4f0-d2da-11ea-ab34-1b0cd727d0eb",
@@ -32,7 +32,7 @@ const banerList = [
 		"addtime": "2020-07-31T03:07:27.295Z",
 		"goodsid": "",
 		"topid": "top2",
-		"icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/bd270b2f4b2c0f4d675b8b1a748524eb.png"
+		"icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/521010247ff5852fe77dff5a943e6d97.png"
 	},
 	{
 		"id": "0cdfb640-d2db-11ea-ab34-1b0cd727d0eb",
@@ -43,7 +43,7 @@ const banerList = [
 		"goodsid": "",
 		"topid": "top1",
 		"classid": "765fdbc0-dba2-11ea-a68f-873831895ca3",
-		"icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/9fad0881f1c624da4c650515d5fd2eb6.png"
+		"icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/0a26deb65cb6e537a5e619241d382ecc.png"
 	},
 	{
 		"id": "d8ebd8a0-d2da-11ea-ab34-1b0cd727d0eb",
@@ -53,7 +53,7 @@ const banerList = [
 		"addtime": "2020-07-31T03:06:37.226Z",
 		"goodsid": "a304eb50-d2df-11ea-ab34-1b0cd727d0eb",
 		"topid": "top1",
-		"icon": "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/27964464739a190c368958bc28f80625.png"
+		"icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/0a26deb65cb6e537a5e619241d382ecc.png"
 	}
 ]
 export default {

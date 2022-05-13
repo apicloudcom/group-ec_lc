@@ -2,7 +2,7 @@
     <view class="commodity-swiper-box">
         <swiper class="commodity-swiper-swiper" circular autoplay onchange="fnSwiperChange">
             <swiper-item v-for="imgSrc in swiperList">
-                <image class="commodity-swiper-img" :src="imgSrc" mode="aspectFit"/>
+                <image class="commodity-swiper-img" :src="imgSrc"/>
             </swiper-item>
         </swiper>
         <text class="commodity-swiper-indicator-text">{{(current+1)+'/'+swiperList.length}}</text>
@@ -15,9 +15,9 @@ export default {
         return {
             current: 0,
             swiperList: this.props.swiperList || [
-                'http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/32be522c4b709dc2b0363a831924a41b.png',
-                'http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/4f766931500ca4f167bb6abd75958b07.png',
-                'http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/8fc6a35189b79d2c8c5d2a15dc940903.png'
+                'http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png',
+                'http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png',
+                'http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png'
             ]
         }
     },
@@ -41,7 +41,7 @@ export default {
 }
 .commodity-swiper-swiper {
     width: 100%;
-    height: 337px;
+    height: 320px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -55,7 +55,7 @@ export default {
 }
 .commodity-swiper-img {
     width: 100%;
-    height: 331px;
+    height: 316px;
 }
 .commodity-swiper-indicator-text{
     position: absolute;

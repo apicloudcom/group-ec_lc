@@ -44,19 +44,19 @@ export default {
                 cnum: 3
             },
             hocOrderListSgmBuyProductList: [{
-                title: "powera xbox手柄游戏手柄有线手柄pc",
-                image: "http://a5acb3a72579f0bf5f6c.qiniucdn.apicloud-system.com/apicloud/bd270b2f4b2c0f4d675b8b1a748524eb.png",
-                price: 998.88,
-                delprice: 1288.88,
+                title: "测血压手环智能心率心脏血氧运动量体温定位",
+                image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/2fffadde6135dda7de6c7567a461c5af.png",
+                price: 30.9,
+                delprice: 50,
                 key: "红色",
                 buynum: 1,
                 act: "tuan"
             }, {
-                title: "iPhone 8 Plus全新苹果8正品8p国行三网苹果8plus手机",
-                image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/c2d0ff728631b9e8cdf14e6c5fcc38f0.png",
-                price: 2500,
-                delprice: 3200,
-                key: "64G",
+                title: "NFC版全面彩屏支付30种运动模式心率检",
+                image: "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/746f329fbe1b3791e49072c8a05ec60e.png",
+                price: 30.9,
+                delprice: 40,
+                key: "黑色",
                 buynum: 1,
                 act: "buy"
             }]
