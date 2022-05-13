@@ -29,6 +29,16 @@ export default {
     data() {
         return {
             swiperList: [{
+                "id": "0cdfb640-d2db-11ea-ab34-1b0cd727d0eb",
+                "title": "333",
+                "type": "class",
+                "orderby": 1,
+                "addtime": "2020-07-31T03:08:04.388Z",
+                "goodsid": "",
+                "topid": "top1",
+                "classid": "765fdbc0-dba2-11ea-a68f-873831895ca3",
+                "icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/0a26deb65cb6e537a5e619241d382ecc.png"
+            }, {
                 "id": "df67a270-dba1-11ea-a68f-873831895ca3",
                 "title": "拼团4",
                 "type": "none",
@@ -45,16 +55,6 @@ export default {
                 "goodsid": "",
                 "topid": "top2",
                 "icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/521010247ff5852fe77dff5a943e6d97.png"
-            }, {
-                "id": "0cdfb640-d2db-11ea-ab34-1b0cd727d0eb",
-                "title": "333",
-                "type": "class",
-                "orderby": 1,
-                "addtime": "2020-07-31T03:08:04.388Z",
-                "goodsid": "",
-                "topid": "top1",
-                "classid": "765fdbc0-dba2-11ea-a68f-873831895ca3",
-                "icon": "http://a346b1014469c58049d5.qiniucdn.apicloud-system.com/apicloud/0a26deb65cb6e537a5e619241d382ecc.png"
             }, {
                 "id": "d8ebd8a0-d2da-11ea-ab34-1b0cd727d0eb",
                 "title": "111",
