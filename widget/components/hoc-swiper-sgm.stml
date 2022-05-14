@@ -2,8 +2,8 @@
 <template>
 	<view class="index-swiper-wrapper">
 		<swiper class="index-swiper" circular autoplay @change="fnSwiperChange">
-			<swiper-item v-for="(item, index) in swiperList">
-				<image class="index-swiper-img" :src="item.icon" mode="aspectFill" @click="fnBannerPage(item)"
+			<swiper-item v-for="(item, index) in swiperList" style="width: 100%; height: 180px;">
+				<image class="index-swiper-img" :src="item.icon" @click="fnBannerPage(item)"
 					:data-index="index" />
 			</swiper-item>
 		</swiper>
@@ -82,12 +82,13 @@ export default {
 	/* box-shadow: 0 0 5px #f9f9f9; */
 }
 .index-swiper {
-	height: 100%;
+	height: 180px;
 	border-radius: 6px;
 }
 .index-swiper-img {
 	width: 100%;
-	height: 100%;
+	height: 97%;
+	border-radius: 6px;
 }
 .index-swiper-dots {
 	flex-direction: row;
@@ -95,7 +96,7 @@ export default {
 	width: 100%;
 	height: 4px;
 	position: absolute;
-	bottom: 6px;
+	bottom: 12px;
 }
 .index-swiper-dot {
 	width: 4px;
