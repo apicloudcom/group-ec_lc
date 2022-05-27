@@ -6,11 +6,9 @@
 
 ## 可视化界面显示效果截图
 
-![png1](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/758d273b01c415828226993f445f6404.png)
-![png2](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f03172139f25afac4cca06d83d320d9f.png)
-![png3](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/0270de10a8da8c8702f4c0ead19931fd.png)
-![png4](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f40b74748e6aae4bbf6bc58694d6e6cb.png)
-![png5](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f40b74748e6aae4bbf6bc58694d6e6cb.png)
+![](./docs/main.png)
+![](./docs/sort.png)
+![](./docs/user.png)
 
 ## 源码文件目录结构说明
 
@@ -93,12 +91,12 @@
 
 + 下载成功后，安装后打开，顶部菜单选择【项目】-【新建项目】，填写应用名称，选择相应模板，点【完成】按钮进行创建。
 
-![png6](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/5ca67ec0d0af2caae978e0763cdd81f4.png)
+![](./docs/create.png)
 
 + 创建完项目后打开某一个页面，点击左上角图标可切换为可视化界面，可进行页面的设计，左侧栏可根据项目需求拖拽任意组件到画布中，右侧属性设置栏可对拖拽的组件进行设置。具体操作可查看 [可视化工具的使用视频](https://www.apicloud.com/video_play/20_1825)。
 
-![png7](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/ad9a8bc01a3b69393052711af94739c2.png)
-![png8](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/ec850d72de638cb572c0eb7640ea0347.png)
+![](./docs/code.png)
+![](./docs/visual.png)
 
 ## 技术支持
 
