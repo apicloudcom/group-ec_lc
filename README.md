@@ -89,13 +89,13 @@
 ```
 ## 怎么使用可视化工具进行开发
 
-1. 下载最新版的[APICloud Studio 3](https://www.apicloud.com/studio3#downloadBtn)
++ 下载最新版的[APICloud Studio 3](https://www.apicloud.com/studio3#downloadBtn)
 
-2. 下载成功后，安装后打开，顶部菜单选择【项目】-【新建项目】，填写应用名称，选择相应模板，点【完成】按钮进行创建。
++ 下载成功后，安装后打开，顶部菜单选择【项目】-【新建项目】，填写应用名称，选择相应模板，点【完成】按钮进行创建。
 
 ![png6](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/5ca67ec0d0af2caae978e0763cdd81f4.png)
 
-3. 创建完项目后打开某一个页面，点击左上角图标可切换为可视化界面，可进行页面的设计，左侧栏可根据项目需求拖拽任意组件到画布中，右侧属性设置栏可对拖拽的组件进行设置。具体操作可查看 [可视化工具的使用视频](https://www.apicloud.com/video_play/20_1825)。
++ 创建完项目后打开某一个页面，点击左上角图标可切换为可视化界面，可进行页面的设计，左侧栏可根据项目需求拖拽任意组件到画布中，右侧属性设置栏可对拖拽的组件进行设置。具体操作可查看 [可视化工具的使用视频](https://www.apicloud.com/video_play/20_1825)。
 
 ![png7](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/ad9a8bc01a3b69393052711af94739c2.png)
 ![png8](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/ec850d72de638cb572c0eb7640ea0347.png)
