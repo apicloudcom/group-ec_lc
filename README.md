@@ -105,6 +105,6 @@
 
 ## 项目源码
 
-http://git.yonyou.com/APICloud-CF/group-ec_lc
+https://github.com/apicloudcom/group-ec_lc
 
 
