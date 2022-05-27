@@ -1,9 +1,11 @@
 # 项目介绍
 
 ## 功能描述
+
 本模板为拼团商城APP，主要功能包括商品分类、商品详情、订单管理等页面。里面涉及到的所有页面都是由APICloud可视化工具中的高级组件进行拼接而成的静态页面，不涉及业务逻辑相关的操作。目的是为了实现在APICloud可视化工具设计界面中能够正常显示页面中的内容。
 
 ## 可视化界面显示效果截图
+
 ![png1](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/758d273b01c415828226993f445f6404.png)
 ![png2](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f03172139f25afac4cca06d83d320d9f.png)
 ![png3](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/0270de10a8da8c8702f4c0ead19931fd.png)
@@ -11,6 +13,7 @@
 ![png5](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/f40b74748e6aae4bbf6bc58694d6e6cb.png)
 
 ## 源码文件目录结构说明
+
 项目源码在widget目录下，该目录下的文件说明如下：
 
 ```
@@ -85,18 +88,25 @@
 └─config.json// 底部导航栏配置文件
 ```
 ## 怎么使用可视化工具进行开发
+
 1. 下载最新版的[APICloud Studio 3](https://www.apicloud.com/studio3#downloadBtn)
+
 2. 下载成功后，安装后打开，顶部菜单选择【项目】-【新建项目】，填写应用名称，选择相应模板，点【完成】按钮进行创建。
+
 ![png6](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/5ca67ec0d0af2caae978e0763cdd81f4.png)
+
 3. 创建完项目后打开某一个页面，点击左上角图标可切换为可视化界面，可进行页面的设计，左侧栏可根据项目需求拖拽任意组件到画布中，右侧属性设置栏可对拖拽的组件进行设置。具体操作可查看 [可视化工具的使用视频](https://www.apicloud.com/video_play/20_1825)。
+
 ![png7](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/ad9a8bc01a3b69393052711af94739c2.png)
 ![png8](http://ae8b3ee28597856d3283.qiniucdn.apicloud-system.com/apicloud/ec850d72de638cb572c0eb7640ea0347.png)
 
 ## 技术支持
+
 使用中若有任何疑问可到APICloud论坛 [AVM多端](https://developer.yonyou.com/forum-71-1.html) 专区发帖提问。官方技术支持和众多活跃开发者会第一时间为您提供技术支持。
 
 
 ## 项目源码
+
 http://git.yonyou.com/APICloud-CF/group-ec_lc
 
 
